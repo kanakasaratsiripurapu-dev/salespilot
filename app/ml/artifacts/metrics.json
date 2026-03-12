@@ -1,0 +1,8 @@
+{
+  "train_auc": 1.0,
+  "train_accuracy": 1.0,
+  "val_auc": 1.0,
+  "val_accuracy": 1.0,
+  "test_auc": 1.0,
+  "test_accuracy": 1.0
+}
