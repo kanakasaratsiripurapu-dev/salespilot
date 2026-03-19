@@ -1,0 +1,2906 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_85f61904956ef315f14874e9365d0a70 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 600.0px;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_85f61904956ef315f14874e9365d0a70" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_85f61904956ef315f14874e9365d0a70 = L.map(
+                "map_85f61904956ef315f14874e9365d0a70",
+                {
+                    center: [36.5, -119.5],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 6,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_5c799ffc344f52a1f44345001d6bbb32 = L.tileLayer(
+                "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 20,
+  "maxNativeZoom": 20,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors \u0026copy; \u003ca href=\"https://carto.com/attributions\"\u003eCARTO\u003c/a\u003e",
+  "subdomains": "abcd",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_5c799ffc344f52a1f44345001d6bbb32.addTo(map_85f61904956ef315f14874e9365d0a70);
+        
+    
+            var circle_marker_930dc2ef5b61c9f6c689142cbad4fd87 = L.circleMarker(
+                [39.50222, -119.796937],
+                {"bubblingMouseEvents": true, "color": "#006837", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#006837", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 20, "stroke": true, "weight": 2}
+            ).addTo(map_85f61904956ef315f14874e9365d0a70);
+        
+    
+        var popup_55344d9a28531d0a731ff726bc6d2a9b = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_2f1822c4a21afac161a6fae2f9ea0f42 = $(`<div id="html_2f1822c4a21afac161a6fae2f9ea0f42" style="width: 100.0%; height: 100.0%;">     <div style='font-family: Arial; min-width: 180px;'>         <h4 style='margin:0;'>Rangreen</h4>         <b>Industry:</b> technolgy<br>         <b>Priority:</b> 0.6862<br>         <b>Revenue:</b> $2,939M<br>         <b>Employees:</b> 8,775     </div>     </div>`)[0];
+                popup_55344d9a28531d0a731ff726bc6d2a9b.setContent(html_2f1822c4a21afac161a6fae2f9ea0f42);
+            
+        
+
+        circle_marker_930dc2ef5b61c9f6c689142cbad4fd87.bindPopup(popup_55344d9a28531d0a731ff726bc6d2a9b)
+        ;
+
+        
+    
+    
+            circle_marker_930dc2ef5b61c9f6c689142cbad4fd87.bindTooltip(
+                `<div>
+                     Rangreen (0.686)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_691d3a68d77d0ef4be5a3c00e6f14225 = L.circleMarker(
+                [37.345604, -121.873448],
+                {"bubblingMouseEvents": true, "color": "#036e3a", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#036e3a", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 20, "stroke": true, "weight": 2}
+            ).addTo(map_85f61904956ef315f14874e9365d0a70);
+        
+    
+        var popup_54b7c30a1e6e6be2ac613bb727241fdc = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_340721ce47e943626cc3268faf553533 = $(`<div id="html_340721ce47e943626cc3268faf553533" style="width: 100.0%; height: 100.0%;">     <div style='font-family: Arial; min-width: 180px;'>         <h4 style='margin:0;'>Goodsilron</h4>         <b>Industry:</b> marketing<br>         <b>Priority:</b> 0.6825<br>         <b>Revenue:</b> $2,953M<br>         <b>Employees:</b> 5,107     </div>     </div>`)[0];
+                popup_54b7c30a1e6e6be2ac613bb727241fdc.setContent(html_340721ce47e943626cc3268faf553533);
+            
+        
+
+        circle_marker_691d3a68d77d0ef4be5a3c00e6f14225.bindPopup(popup_54b7c30a1e6e6be2ac613bb727241fdc)
+        ;
+
+        
+    
+    
+            circle_marker_691d3a68d77d0ef4be5a3c00e6f14225.bindTooltip(
+                `<div>
+                     Goodsilron (0.682)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_5cb9bcabf3b4ebec5f67805514a05683 = L.circleMarker(
+                [37.37663, -121.925522],
+                {"bubblingMouseEvents": true, "color": "#06733d", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#06733d", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 20, "stroke": true, "weight": 2}
+            ).addTo(map_85f61904956ef315f14874e9365d0a70);
+        
+    
+        var popup_016857298238d51ef6cb93ac45e0d7ed = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_96e95278de1f63bb9eba931f3ad21fb4 = $(`<div id="html_96e95278de1f63bb9eba931f3ad21fb4" style="width: 100.0%; height: 100.0%;">     <div style='font-family: Arial; min-width: 180px;'>         <h4 style='margin:0;'>Gekko & Co</h4>         <b>Industry:</b> retail<br>         <b>Priority:</b> 0.6801<br>         <b>Revenue:</b> $2,521M<br>         <b>Employees:</b> 3,502     </div>     </div>`)[0];
+                popup_016857298238d51ef6cb93ac45e0d7ed.setContent(html_96e95278de1f63bb9eba931f3ad21fb4);
+            
+        
+
+        circle_marker_5cb9bcabf3b4ebec5f67805514a05683.bindPopup(popup_016857298238d51ef6cb93ac45e0d7ed)
+        ;
+
+        
+    
+    
+            circle_marker_5cb9bcabf3b4ebec5f67805514a05683.bindTooltip(
+                `<div>
+                     Gekko & Co (0.680)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_8688ba82276c2f861c5ab8f4e51afe14 = L.circleMarker(
+                [39.546616, -119.779804],
+                {"bubblingMouseEvents": true, "color": "#0f8446", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#0f8446", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10.1272, "stroke": true, "weight": 2}
+            ).addTo(map_85f61904956ef315f14874e9365d0a70);
+        
+    
+        var popup_55a99f36e61d556c4dede18ec3aa0b77 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_98d5b93aa1664c70618335d16e8b8f62 = $(`<div id="html_98d5b93aa1664c70618335d16e8b8f62" style="width: 100.0%; height: 100.0%;">     <div style='font-family: Arial; min-width: 180px;'>         <h4 style='margin:0;'>Newex</h4>         <b>Industry:</b> services<br>         <b>Priority:</b> 0.6712<br>         <b>Revenue:</b> $1,013M<br>         <b>Employees:</b> 3,492     </div>     </div>`)[0];
+                popup_55a99f36e61d556c4dede18ec3aa0b77.setContent(html_98d5b93aa1664c70618335d16e8b8f62);
+            
+        
+
+        circle_marker_8688ba82276c2f861c5ab8f4e51afe14.bindPopup(popup_55a99f36e61d556c4dede18ec3aa0b77)
+        ;
+
+        
+    
+    
+            circle_marker_8688ba82276c2f861c5ab8f4e51afe14.bindTooltip(
+                `<div>
+                     Newex (0.671)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_29c878e2967618ecca5486680da6647c = L.circleMarker(
+                [37.38359, -121.92947],
+                {"bubblingMouseEvents": true, "color": "#219c52", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#219c52", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 20, "stroke": true, "weight": 2}
+            ).addTo(map_85f61904956ef315f14874e9365d0a70);
+        
+    
+        var popup_e3a6615e9fb1a5e430e347ea8e044c3c = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_d6c75066b640b048d132a312c92ed2bf = $(`<div id="html_d6c75066b640b048d132a312c92ed2bf" style="width: 100.0%; height: 100.0%;">     <div style='font-family: Arial; min-width: 180px;'>         <h4 style='margin:0;'>Warephase</h4>         <b>Industry:</b> services<br>         <b>Priority:</b> 0.6590<br>         <b>Revenue:</b> $2,042M<br>         <b>Employees:</b> 5,276     </div>     </div>`)[0];
+                popup_e3a6615e9fb1a5e430e347ea8e044c3c.setContent(html_d6c75066b640b048d132a312c92ed2bf);
+            
+        
+
+        circle_marker_29c878e2967618ecca5486680da6647c.bindPopup(popup_e3a6615e9fb1a5e430e347ea8e044c3c)
+        ;
+
+        
+    
+    
+            circle_marker_29c878e2967618ecca5486680da6647c.bindTooltip(
+                `<div>
+                     Warephase (0.659)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_106ce648cfdb52927a046f42d46946b0 = L.circleMarker(
+                [37.387944, -121.839956],
+                {"bubblingMouseEvents": true, "color": "#3faa59", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3faa59", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 16.982, "stroke": true, "weight": 2}
+            ).addTo(map_85f61904956ef315f14874e9365d0a70);
+        
+    
+        var popup_c6aeb3d07c4b73e09f65d5f3307d75b5 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_ce8cf4aa77a7376ed6a31fd60c29f512 = $(`<div id="html_ce8cf4aa77a7376ed6a31fd60c29f512" style="width: 100.0%; height: 100.0%;">     <div style='font-family: Arial; min-width: 180px;'>         <h4 style='margin:0;'>Stanredtax</h4>         <b>Industry:</b> finance<br>         <b>Priority:</b> 0.6496<br>         <b>Revenue:</b> $1,698M<br>         <b>Employees:</b> 3,798     </div>     </div>`)[0];
+                popup_c6aeb3d07c4b73e09f65d5f3307d75b5.setContent(html_ce8cf4aa77a7376ed6a31fd60c29f512);
+            
+        
+
+        circle_marker_106ce648cfdb52927a046f42d46946b0.bindPopup(popup_c6aeb3d07c4b73e09f65d5f3307d75b5)
+        ;
+
+        
+    
+    
+            circle_marker_106ce648cfdb52927a046f42d46946b0.bindTooltip(
+                `<div>
+                     Stanredtax (0.650)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_1043a5c32b266b679c8b45a15ac713e0 = L.circleMarker(
+                [37.384711, -121.850979],
+                {"bubblingMouseEvents": true, "color": "#45ad5b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#45ad5b", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 13.886700000000001, "stroke": true, "weight": 2}
+            ).addTo(map_85f61904956ef315f14874e9365d0a70);
+        
+    
+        var popup_65f7322dc0e4a1a83e2454538c9d5d2a = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_ed7402ab9e6db3748680ee7c393d03fd = $(`<div id="html_ed7402ab9e6db3748680ee7c393d03fd" style="width: 100.0%; height: 100.0%;">     <div style='font-family: Arial; min-width: 180px;'>         <h4 style='margin:0;'>J-Texon</h4>         <b>Industry:</b> retail<br>         <b>Priority:</b> 0.6479<br>         <b>Revenue:</b> $1,389M<br>         <b>Employees:</b> 3,583     </div>     </div>`)[0];
+                popup_65f7322dc0e4a1a83e2454538c9d5d2a.setContent(html_ed7402ab9e6db3748680ee7c393d03fd);
+            
+        
+
+        circle_marker_1043a5c32b266b679c8b45a15ac713e0.bindPopup(popup_65f7322dc0e4a1a83e2454538c9d5d2a)
+        ;
+
+        
+    
+    
+            circle_marker_1043a5c32b266b679c8b45a15ac713e0.bindTooltip(
+                `<div>
+                     J-Texon (0.648)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_6019973d009bfc442f563f86e352756f = L.circleMarker(
+                [37.376524, -121.928029],
+                {"bubblingMouseEvents": true, "color": "#51b35e", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#51b35e", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 2}
+            ).addTo(map_85f61904956ef315f14874e9365d0a70);
+        
+    
+        var popup_223021ade992bcb5687be354fc973775 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_60cb743252f4b57ab14dd4ded624c722 = $(`<div id="html_60cb743252f4b57ab14dd4ded624c722" style="width: 100.0%; height: 100.0%;">     <div style='font-family: Arial; min-width: 180px;'>         <h4 style='margin:0;'>Gogozoom</h4>         <b>Industry:</b> telecommunications<br>         <b>Priority:</b> 0.6435<br>         <b>Revenue:</b> $87M<br>         <b>Employees:</b> 187     </div>     </div>`)[0];
+                popup_223021ade992bcb5687be354fc973775.setContent(html_60cb743252f4b57ab14dd4ded624c722);
+            
+        
+
+        circle_marker_6019973d009bfc442f563f86e352756f.bindPopup(popup_223021ade992bcb5687be354fc973775)
+        ;
+
+        
+    
+    
+            circle_marker_6019973d009bfc442f563f86e352756f.bindTooltip(
+                `<div>
+                     Gogozoom (0.643)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_e3489fefae1305fe0aa120a2f4ea6835 = L.circleMarker(
+                [37.327207, -121.855782],
+                {"bubblingMouseEvents": true, "color": "#57b65f", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#57b65f", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 20, "stroke": true, "weight": 2}
+            ).addTo(map_85f61904956ef315f14874e9365d0a70);
+        
+    
+        var popup_878721f89c014e2bbaf16792a293ff59 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_fcdf3fbe1a576890e6a57f9d97b414d9 = $(`<div id="html_fcdf3fbe1a576890e6a57f9d97b414d9" style="width: 100.0%; height: 100.0%;">     <div style='font-family: Arial; min-width: 180px;'>         <h4 style='margin:0;'>Singletechno</h4>         <b>Industry:</b> retail<br>         <b>Priority:</b> 0.6415<br>         <b>Revenue:</b> $2,215M<br>         <b>Employees:</b> 5,374     </div>     </div>`)[0];
+                popup_878721f89c014e2bbaf16792a293ff59.setContent(html_fcdf3fbe1a576890e6a57f9d97b414d9);
+            
+        
+
+        circle_marker_e3489fefae1305fe0aa120a2f4ea6835.bindPopup(popup_878721f89c014e2bbaf16792a293ff59)
+        ;
+
+        
+    
+    
+            circle_marker_e3489fefae1305fe0aa120a2f4ea6835.bindTooltip(
+                `<div>
+                     Singletechno (0.641)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_ed904adbae82d07158bc66043e3bc0a7 = L.circleMarker(
+                [37.386997, -121.855609],
+                {"bubblingMouseEvents": true, "color": "#60ba62", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#60ba62", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 20, "stroke": true, "weight": 2}
+            ).addTo(map_85f61904956ef315f14874e9365d0a70);
+        
+    
+        var popup_507eeb8bc47209edac0c4b4581c41872 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_f4049e4cbf007afbb12af02aa9a2a88f = $(`<div id="html_f4049e4cbf007afbb12af02aa9a2a88f" style="width: 100.0%; height: 100.0%;">     <div style='font-family: Arial; min-width: 180px;'>         <h4 style='margin:0;'>Finjob</h4>         <b>Industry:</b> employment<br>         <b>Priority:</b> 0.6393<br>         <b>Revenue:</b> $2,060M<br>         <b>Employees:</b> 3,644     </div>     </div>`)[0];
+                popup_507eeb8bc47209edac0c4b4581c41872.setContent(html_f4049e4cbf007afbb12af02aa9a2a88f);
+            
+        
+
+        circle_marker_ed904adbae82d07158bc66043e3bc0a7.bindPopup(popup_507eeb8bc47209edac0c4b4581c41872)
+        ;
+
+        
+    
+    
+            circle_marker_ed904adbae82d07158bc66043e3bc0a7.bindTooltip(
+                `<div>
+                     Finjob (0.639)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_4d29539215560a10416b30740a026fb4 = L.circleMarker(
+                [37.312098, -121.847739],
+                {"bubblingMouseEvents": true, "color": "#69be63", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#69be63", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 20, "stroke": true, "weight": 2}
+            ).addTo(map_85f61904956ef315f14874e9365d0a70);
+        
+    
+        var popup_636c3e78b15d07687b12a1f6a5f486c5 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_7f96d49b5579eab0598c74b7db46d4b5 = $(`<div id="html_7f96d49b5579eab0598c74b7db46d4b5" style="width: 100.0%; height: 100.0%;">     <div style='font-family: Arial; min-width: 180px;'>         <h4 style='margin:0;'>Scotfind</h4>         <b>Industry:</b> software<br>         <b>Priority:</b> 0.6365<br>         <b>Revenue:</b> $6,355M<br>         <b>Employees:</b> 16,780     </div>     </div>`)[0];
+                popup_636c3e78b15d07687b12a1f6a5f486c5.setContent(html_7f96d49b5579eab0598c74b7db46d4b5);
+            
+        
+
+        circle_marker_4d29539215560a10416b30740a026fb4.bindPopup(popup_636c3e78b15d07687b12a1f6a5f486c5)
+        ;
+
+        
+    
+    
+            circle_marker_4d29539215560a10416b30740a026fb4.bindTooltip(
+                `<div>
+                     Scotfind (0.636)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_d639e85cb9bf40e95a8ae6908ec369b0 = L.circleMarker(
+                [37.356397, -121.884789],
+                {"bubblingMouseEvents": true, "color": "#69be63", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#69be63", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 2}
+            ).addTo(map_85f61904956ef315f14874e9365d0a70);
+        
+    
+        var popup_d3fa60f332a5eae259a68fccf30dde34 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_1dbcfd312bde516f4cc5070989f0f96a = $(`<div id="html_1dbcfd312bde516f4cc5070989f0f96a" style="width: 100.0%; height: 100.0%;">     <div style='font-family: Arial; min-width: 180px;'>         <h4 style='margin:0;'>Domzoom</h4>         <b>Industry:</b> entertainment<br>         <b>Priority:</b> 0.6365<br>         <b>Revenue:</b> $218M<br>         <b>Employees:</b> 551     </div>     </div>`)[0];
+                popup_d3fa60f332a5eae259a68fccf30dde34.setContent(html_1dbcfd312bde516f4cc5070989f0f96a);
+            
+        
+
+        circle_marker_d639e85cb9bf40e95a8ae6908ec369b0.bindPopup(popup_d3fa60f332a5eae259a68fccf30dde34)
+        ;
+
+        
+    
+    
+            circle_marker_d639e85cb9bf40e95a8ae6908ec369b0.bindTooltip(
+                `<div>
+                     Domzoom (0.636)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_e4c84e6ee37d57c627bb1013fd5095db = L.circleMarker(
+                [36.195253, -115.110674],
+                {"bubblingMouseEvents": true, "color": "#73c264", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#73c264", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8.9437, "stroke": true, "weight": 2}
+            ).addTo(map_85f61904956ef315f14874e9365d0a70);
+        
+    
+        var popup_7dcc611ad7ed21beb387bd7165635c90 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_48d60072f4b911cfb6565d74d2ce17c3 = $(`<div id="html_48d60072f4b911cfb6565d74d2ce17c3" style="width: 100.0%; height: 100.0%;">     <div style='font-family: Arial; min-width: 180px;'>         <h4 style='margin:0;'>Sunnamplex</h4>         <b>Industry:</b> marketing<br>         <b>Priority:</b> 0.6321<br>         <b>Revenue:</b> $894M<br>         <b>Employees:</b> 1,593     </div>     </div>`)[0];
+                popup_7dcc611ad7ed21beb387bd7165635c90.setContent(html_48d60072f4b911cfb6565d74d2ce17c3);
+            
+        
+
+        circle_marker_e4c84e6ee37d57c627bb1013fd5095db.bindPopup(popup_7dcc611ad7ed21beb387bd7165635c90)
+        ;
+
+        
+    
+    
+            circle_marker_e4c84e6ee37d57c627bb1013fd5095db.bindTooltip(
+                `<div>
+                     Sunnamplex (0.632)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_4e14bfa59f092c6efb22689034cba16f = L.circleMarker(
+                [37.299648, -121.933599],
+                {"bubblingMouseEvents": true, "color": "#87cb67", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#87cb67", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 20, "stroke": true, "weight": 2}
+            ).addTo(map_85f61904956ef315f14874e9365d0a70);
+        
+    
+        var popup_aeef3f47e08f860df0977bae5797f07f = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_62c3ef7b184814deb25099bc532610f6 = $(`<div id="html_62c3ef7b184814deb25099bc532610f6" style="width: 100.0%; height: 100.0%;">     <div style='font-family: Arial; min-width: 180px;'>         <h4 style='margin:0;'>Zotware</h4>         <b>Industry:</b> software<br>         <b>Priority:</b> 0.6251<br>         <b>Revenue:</b> $4,478M<br>         <b>Employees:</b> 13,809     </div>     </div>`)[0];
+                popup_aeef3f47e08f860df0977bae5797f07f.setContent(html_62c3ef7b184814deb25099bc532610f6);
+            
+        
+
+        circle_marker_4e14bfa59f092c6efb22689034cba16f.bindPopup(popup_aeef3f47e08f860df0977bae5797f07f)
+        ;
+
+        
+    
+    
+            circle_marker_4e14bfa59f092c6efb22689034cba16f.bindTooltip(
+                `<div>
+                     Zotware (0.625)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_fa4c4f83b0d4b94792b71354b918dc07 = L.circleMarker(
+                [37.380427, -121.922233],
+                {"bubblingMouseEvents": true, "color": "#89cc67", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#89cc67", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 20, "stroke": true, "weight": 2}
+            ).addTo(map_85f61904956ef315f14874e9365d0a70);
+        
+    
+        var popup_23c6af8a3cf9e2ff146b296025eded2f = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_a924a0eb5c99e1273e0e89fa9d852ab6 = $(`<div id="html_a924a0eb5c99e1273e0e89fa9d852ab6" style="width: 100.0%; height: 100.0%;">     <div style='font-family: Arial; min-width: 180px;'>         <h4 style='margin:0;'>Ron-tech</h4>         <b>Industry:</b> medical<br>         <b>Priority:</b> 0.6240<br>         <b>Revenue:</b> $3,922M<br>         <b>Employees:</b> 6,837     </div>     </div>`)[0];
+                popup_23c6af8a3cf9e2ff146b296025eded2f.setContent(html_a924a0eb5c99e1273e0e89fa9d852ab6);
+            
+        
+
+        circle_marker_fa4c4f83b0d4b94792b71354b918dc07.bindPopup(popup_23c6af8a3cf9e2ff146b296025eded2f)
+        ;
+
+        
+    
+    
+            circle_marker_fa4c4f83b0d4b94792b71354b918dc07.bindTooltip(
+                `<div>
+                     Ron-tech (0.624)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_71bcfd0a2a43c1109f97592f85329139 = L.circleMarker(
+                [37.38288, -121.855248],
+                {"bubblingMouseEvents": true, "color": "#89cc67", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#89cc67", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10.080599999999999, "stroke": true, "weight": 2}
+            ).addTo(map_85f61904956ef315f14874e9365d0a70);
+        
+    
+        var popup_c6e3b3f1027e147f2d889c2435da8251 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_ed61070153d7aa8a1dea561a7f4e2eb8 = $(`<div id="html_ed61070153d7aa8a1dea561a7f4e2eb8" style="width: 100.0%; height: 100.0%;">     <div style='font-family: Arial; min-width: 180px;'>         <h4 style='margin:0;'>Rundofase</h4>         <b>Industry:</b> technolgy<br>         <b>Priority:</b> 0.6235<br>         <b>Revenue:</b> $1,008M<br>         <b>Employees:</b> 1,238     </div>     </div>`)[0];
+                popup_c6e3b3f1027e147f2d889c2435da8251.setContent(html_ed61070153d7aa8a1dea561a7f4e2eb8);
+            
+        
+
+        circle_marker_71bcfd0a2a43c1109f97592f85329139.bindPopup(popup_c6e3b3f1027e147f2d889c2435da8251)
+        ;
+
+        
+    
+    
+            circle_marker_71bcfd0a2a43c1109f97592f85329139.bindTooltip(
+                `<div>
+                     Rundofase (0.624)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_c03194f124c3dde858826d4f559be047 = L.circleMarker(
+                [37.31555, -121.895165],
+                {"bubblingMouseEvents": true, "color": "#9dd569", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#9dd569", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 2}
+            ).addTo(map_85f61904956ef315f14874e9365d0a70);
+        
+    
+        var popup_6c53ff882c7e821c03ce876319833481 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_4421fc9e98a0f7b4b5ec749395853dca = $(`<div id="html_4421fc9e98a0f7b4b5ec749395853dca" style="width: 100.0%; height: 100.0%;">     <div style='font-family: Arial; min-width: 180px;'>         <h4 style='margin:0;'>Condax</h4>         <b>Industry:</b> medical<br>         <b>Priority:</b> 0.6158<br>         <b>Revenue:</b> $5M<br>         <b>Employees:</b> 9     </div>     </div>`)[0];
+                popup_6c53ff882c7e821c03ce876319833481.setContent(html_4421fc9e98a0f7b4b5ec749395853dca);
+            
+        
+
+        circle_marker_c03194f124c3dde858826d4f559be047.bindPopup(popup_6c53ff882c7e821c03ce876319833481)
+        ;
+
+        
+    
+    
+            circle_marker_c03194f124c3dde858826d4f559be047.bindTooltip(
+                `<div>
+                     Condax (0.616)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_c5e99d1a523171c77c30dfee8733963c = L.circleMarker(
+                [37.32084, -121.845641],
+                {"bubblingMouseEvents": true, "color": "#a9da6c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#a9da6c", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6.6506, "stroke": true, "weight": 2}
+            ).addTo(map_85f61904956ef315f14874e9365d0a70);
+        
+    
+        var popup_2702d1509f8271b869bb14aa1aa79f5c = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_39226dba9ca0a79cb102c72062b09547 = $(`<div id="html_39226dba9ca0a79cb102c72062b09547" style="width: 100.0%; height: 100.0%;">     <div style='font-family: Arial; min-width: 180px;'>         <h4 style='margin:0;'>Massive Dynamic</h4>         <b>Industry:</b> entertainment<br>         <b>Priority:</b> 0.6115<br>         <b>Revenue:</b> $665M<br>         <b>Employees:</b> 1,095     </div>     </div>`)[0];
+                popup_2702d1509f8271b869bb14aa1aa79f5c.setContent(html_39226dba9ca0a79cb102c72062b09547);
+            
+        
+
+        circle_marker_c5e99d1a523171c77c30dfee8733963c.bindPopup(popup_2702d1509f8271b869bb14aa1aa79f5c)
+        ;
+
+        
+    
+    
+            circle_marker_c5e99d1a523171c77c30dfee8733963c.bindTooltip(
+                `<div>
+                     Massive Dynamic (0.612)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_25fcd969b476a50c2e83601a548d0d86 = L.circleMarker(
+                [37.349833, -121.880933],
+                {"bubblingMouseEvents": true, "color": "#afdd70", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#afdd70", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9.873899999999999, "stroke": true, "weight": 2}
+            ).addTo(map_85f61904956ef315f14874e9365d0a70);
+        
+    
+        var popup_8e705df0236110d4f11368a19480c9a6 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_97668eec70f394b033137f50258c8348 = $(`<div id="html_97668eec70f394b033137f50258c8348" style="width: 100.0%; height: 100.0%;">     <div style='font-family: Arial; min-width: 180px;'>         <h4 style='margin:0;'>Bubba Gump</h4>         <b>Industry:</b> software<br>         <b>Priority:</b> 0.6088<br>         <b>Revenue:</b> $987M<br>         <b>Employees:</b> 2,253     </div>     </div>`)[0];
+                popup_8e705df0236110d4f11368a19480c9a6.setContent(html_97668eec70f394b033137f50258c8348);
+            
+        
+
+        circle_marker_25fcd969b476a50c2e83601a548d0d86.bindPopup(popup_8e705df0236110d4f11368a19480c9a6)
+        ;
+
+        
+    
+    
+            circle_marker_25fcd969b476a50c2e83601a548d0d86.bindTooltip(
+                `<div>
+                     Bubba Gump (0.609)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_f83fdf51fabacf45e780dc549429539c = L.circleMarker(
+                [37.349889, -121.895469],
+                {"bubblingMouseEvents": true, "color": "#b5df74", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#b5df74", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 20, "stroke": true, "weight": 2}
+            ).addTo(map_85f61904956ef315f14874e9365d0a70);
+        
+    
+        var popup_6887b112b7c2b8d1589460d3efface11 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_43d406ec03caff0c5da0df7181fa5e1e = $(`<div id="html_43d406ec03caff0c5da0df7181fa5e1e" style="width: 100.0%; height: 100.0%;">     <div style='font-family: Arial; min-width: 180px;'>         <h4 style='margin:0;'>Konex</h4>         <b>Industry:</b> technolgy<br>         <b>Priority:</b> 0.6055<br>         <b>Revenue:</b> $7,708M<br>         <b>Employees:</b> 13,756     </div>     </div>`)[0];
+                popup_6887b112b7c2b8d1589460d3efface11.setContent(html_43d406ec03caff0c5da0df7181fa5e1e);
+            
+        
+
+        circle_marker_f83fdf51fabacf45e780dc549429539c.bindPopup(popup_6887b112b7c2b8d1589460d3efface11)
+        ;
+
+        
+    
+    
+            circle_marker_f83fdf51fabacf45e780dc549429539c.bindTooltip(
+                `<div>
+                     Konex (0.606)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_bac4032ef21b0bc523737db881cc0730 = L.circleMarker(
+                [37.290748, -121.902554],
+                {"bubblingMouseEvents": true, "color": "#b9e176", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#b9e176", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 17.1268, "stroke": true, "weight": 2}
+            ).addTo(map_85f61904956ef315f14874e9365d0a70);
+        
+    
+        var popup_394c9cded5ed28443f0d51a24e25bb02 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_f8a7ffa0188a3783762b99e74530f920 = $(`<div id="html_f8a7ffa0188a3783762b99e74530f920" style="width: 100.0%; height: 100.0%;">     <div style='font-family: Arial; min-width: 180px;'>         <h4 style='margin:0;'>Donquadtech</h4>         <b>Industry:</b> technolgy<br>         <b>Priority:</b> 0.6035<br>         <b>Revenue:</b> $1,713M<br>         <b>Employees:</b> 3,194     </div>     </div>`)[0];
+                popup_394c9cded5ed28443f0d51a24e25bb02.setContent(html_f8a7ffa0188a3783762b99e74530f920);
+            
+        
+
+        circle_marker_bac4032ef21b0bc523737db881cc0730.bindPopup(popup_394c9cded5ed28443f0d51a24e25bb02)
+        ;
+
+        
+    
+    
+            circle_marker_bac4032ef21b0bc523737db881cc0730.bindTooltip(
+                `<div>
+                     Donquadtech (0.604)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_a7d2b410518d1047d48c48209d0e5d6a = L.circleMarker(
+                [37.344001, -121.896464],
+                {"bubblingMouseEvents": true, "color": "#bfe47a", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#bfe47a", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 20, "stroke": true, "weight": 2}
+            ).addTo(map_85f61904956ef315f14874e9365d0a70);
+        
+    
+        var popup_554c12d82107fdad08afdf442d19e797 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_027e56ac6568e5fee990159664ab07fa = $(`<div id="html_027e56ac6568e5fee990159664ab07fa" style="width: 100.0%; height: 100.0%;">     <div style='font-family: Arial; min-width: 180px;'>         <h4 style='margin:0;'>Inity</h4>         <b>Industry:</b> marketing<br>         <b>Priority:</b> 0.6006<br>         <b>Revenue:</b> $2,404M<br>         <b>Employees:</b> 8,801     </div>     </div>`)[0];
+                popup_554c12d82107fdad08afdf442d19e797.setContent(html_027e56ac6568e5fee990159664ab07fa);
+            
+        
+
+        circle_marker_a7d2b410518d1047d48c48209d0e5d6a.bindPopup(popup_554c12d82107fdad08afdf442d19e797)
+        ;
+
+        
+    
+    
+            circle_marker_a7d2b410518d1047d48c48209d0e5d6a.bindTooltip(
+                `<div>
+                     Inity (0.601)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_1d6fe77b74c9d623562727d82d3dd1ed = L.circleMarker(
+                [37.307672, -121.931974],
+                {"bubblingMouseEvents": true, "color": "#cbe982", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#cbe982", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 2}
+            ).addTo(map_85f61904956ef315f14874e9365d0a70);
+        
+    
+        var popup_a4c44686a779d1c0d1261a200e91d4a6 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_e7afd424d32a4b229c540a58c6afae26 = $(`<div id="html_e7afd424d32a4b229c540a58c6afae26" style="width: 100.0%; height: 100.0%;">     <div style='font-family: Arial; min-width: 180px;'>         <h4 style='margin:0;'>Dalttechnology</h4>         <b>Industry:</b> software<br>         <b>Priority:</b> 0.5956<br>         <b>Revenue:</b> $99M<br>         <b>Employees:</b> 96     </div>     </div>`)[0];
+                popup_a4c44686a779d1c0d1261a200e91d4a6.setContent(html_e7afd424d32a4b229c540a58c6afae26);
+            
+        
+
+        circle_marker_1d6fe77b74c9d623562727d82d3dd1ed.bindPopup(popup_a4c44686a779d1c0d1261a200e91d4a6)
+        ;
+
+        
+    
+    
+            circle_marker_1d6fe77b74c9d623562727d82d3dd1ed.bindTooltip(
+                `<div>
+                     Dalttechnology (0.596)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_d5373c325035c787fd59b5aeab8b597e = L.circleMarker(
+                [37.337725, -121.839476],
+                {"bubblingMouseEvents": true, "color": "#cfeb85", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#cfeb85", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 20, "stroke": true, "weight": 2}
+            ).addTo(map_85f61904956ef315f14874e9365d0a70);
+        
+    
+        var popup_017778feaa5cf6dc72cfc82df0545f02 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_467169d0aef542eac3cf871f1c7130de = $(`<div id="html_467169d0aef542eac3cf871f1c7130de" style="width: 100.0%; height: 100.0%;">     <div style='font-family: Arial; min-width: 180px;'>         <h4 style='margin:0;'>Codehow</h4>         <b>Industry:</b> software<br>         <b>Priority:</b> 0.5937<br>         <b>Revenue:</b> $2,715M<br>         <b>Employees:</b> 2,641     </div>     </div>`)[0];
+                popup_017778feaa5cf6dc72cfc82df0545f02.setContent(html_467169d0aef542eac3cf871f1c7130de);
+            
+        
+
+        circle_marker_d5373c325035c787fd59b5aeab8b597e.bindPopup(popup_017778feaa5cf6dc72cfc82df0545f02)
+        ;
+
+        
+    
+    
+            circle_marker_d5373c325035c787fd59b5aeab8b597e.bindTooltip(
+                `<div>
+                     Codehow (0.594)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_1eb64b02883a5bc452ae76db2e47072e = L.circleMarker(
+                [37.371821, -121.855784],
+                {"bubblingMouseEvents": true, "color": "#d7ee8a", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#d7ee8a", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 20, "stroke": true, "weight": 2}
+            ).addTo(map_85f61904956ef315f14874e9365d0a70);
+        
+    
+        var popup_bb55e1430d728f8d14760d54f63e38d9 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_1e673a18a61990f5ef240d453598fbca = $(`<div id="html_1e673a18a61990f5ef240d453598fbca" style="width: 100.0%; height: 100.0%;">     <div style='font-family: Arial; min-width: 180px;'>         <h4 style='margin:0;'>Mathtouch</h4>         <b>Industry:</b> marketing<br>         <b>Priority:</b> 0.5898<br>         <b>Revenue:</b> $3,027M<br>         <b>Employees:</b> 9,516     </div>     </div>`)[0];
+                popup_bb55e1430d728f8d14760d54f63e38d9.setContent(html_1e673a18a61990f5ef240d453598fbca);
+            
+        
+
+        circle_marker_1eb64b02883a5bc452ae76db2e47072e.bindPopup(popup_bb55e1430d728f8d14760d54f63e38d9)
+        ;
+
+        
+    
+    
+            circle_marker_1eb64b02883a5bc452ae76db2e47072e.bindTooltip(
+                `<div>
+                     Mathtouch (0.590)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_11cb0730b35ca0d787504880b1dcfb40 = L.circleMarker(
+                [37.355339, -121.877486],
+                {"bubblingMouseEvents": true, "color": "#daf08d", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#daf08d", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 2}
+            ).addTo(map_85f61904956ef315f14874e9365d0a70);
+        
+    
+        var popup_2497351dfadd61dd5f9cbfec91e63e80 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_3fc0d05ae0b1697a7ceaf644d8516254 = $(`<div id="html_3fc0d05ae0b1697a7ceaf644d8516254" style="width: 100.0%; height: 100.0%;">     <div style='font-family: Arial; min-width: 180px;'>         <h4 style='margin:0;'>Plusstrip</h4>         <b>Industry:</b> entertainment<br>         <b>Priority:</b> 0.5878<br>         <b>Revenue:</b> $350M<br>         <b>Employees:</b> 315     </div>     </div>`)[0];
+                popup_2497351dfadd61dd5f9cbfec91e63e80.setContent(html_3fc0d05ae0b1697a7ceaf644d8516254);
+            
+        
+
+        circle_marker_11cb0730b35ca0d787504880b1dcfb40.bindPopup(popup_2497351dfadd61dd5f9cbfec91e63e80)
+        ;
+
+        
+    
+    
+            circle_marker_11cb0730b35ca0d787504880b1dcfb40.bindTooltip(
+                `<div>
+                     Plusstrip (0.588)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_94aaed3a50d3dad62503550ea1552be1 = L.circleMarker(
+                [37.344122, -121.892052],
+                {"bubblingMouseEvents": true, "color": "#dcf08f", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#dcf08f", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 20, "stroke": true, "weight": 2}
+            ).addTo(map_85f61904956ef315f14874e9365d0a70);
+        
+    
+        var popup_b89a0b1df0d1a3afec09bf8bbecd4a11 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_dd1f10aa999c40c4c3ba968aac3079b2 = $(`<div id="html_dd1f10aa999c40c4c3ba968aac3079b2" style="width: 100.0%; height: 100.0%;">     <div style='font-family: Arial; min-width: 180px;'>         <h4 style='margin:0;'>dambase</h4>         <b>Industry:</b> marketing<br>         <b>Priority:</b> 0.5862<br>         <b>Revenue:</b> $2,174M<br>         <b>Employees:</b> 2,928     </div>     </div>`)[0];
+                popup_b89a0b1df0d1a3afec09bf8bbecd4a11.setContent(html_dd1f10aa999c40c4c3ba968aac3079b2);
+            
+        
+
+        circle_marker_94aaed3a50d3dad62503550ea1552be1.bindPopup(popup_b89a0b1df0d1a3afec09bf8bbecd4a11)
+        ;
+
+        
+    
+    
+            circle_marker_94aaed3a50d3dad62503550ea1552be1.bindTooltip(
+                `<div>
+                     dambase (0.586)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_27a2e176eabb8ed00e0eb4225e284fea = L.circleMarker(
+                [37.372373, -121.905609],
+                {"bubblingMouseEvents": true, "color": "#ddf191", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ddf191", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 20, "stroke": true, "weight": 2}
+            ).addTo(map_85f61904956ef315f14874e9365d0a70);
+        
+    
+        var popup_da45e112439222a5cc7fd5e884efdd3a = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_105e503ed2144634b3b969a49812052e = $(`<div id="html_105e503ed2144634b3b969a49812052e" style="width: 100.0%; height: 100.0%;">     <div style='font-family: Arial; min-width: 180px;'>         <h4 style='margin:0;'>Y-corporation</h4>         <b>Industry:</b> employment<br>         <b>Priority:</b> 0.5861<br>         <b>Revenue:</b> $2,871M<br>         <b>Employees:</b> 9,561     </div>     </div>`)[0];
+                popup_da45e112439222a5cc7fd5e884efdd3a.setContent(html_105e503ed2144634b3b969a49812052e);
+            
+        
+
+        circle_marker_27a2e176eabb8ed00e0eb4225e284fea.bindPopup(popup_da45e112439222a5cc7fd5e884efdd3a)
+        ;
+
+        
+    
+    
+            circle_marker_27a2e176eabb8ed00e0eb4225e284fea.bindTooltip(
+                `<div>
+                     Y-corporation (0.586)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_fcdf22492f19c9cc9efb8b26f9bf03bb = L.circleMarker(
+                [37.381738, -121.909514],
+                {"bubblingMouseEvents": true, "color": "#ddf191", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ddf191", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 20, "stroke": true, "weight": 2}
+            ).addTo(map_85f61904956ef315f14874e9365d0a70);
+        
+    
+        var popup_e2703eaafe5c712681e98df7ea5195d2 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_9b08063432c8924d2b821bdf1dcb8ed1 = $(`<div id="html_9b08063432c8924d2b821bdf1dcb8ed1" style="width: 100.0%; height: 100.0%;">     <div style='font-family: Arial; min-width: 180px;'>         <h4 style='margin:0;'>Kan-code</h4>         <b>Industry:</b> software<br>         <b>Priority:</b> 0.5856<br>         <b>Revenue:</b> $11,698M<br>         <b>Employees:</b> 34,288     </div>     </div>`)[0];
+                popup_e2703eaafe5c712681e98df7ea5195d2.setContent(html_9b08063432c8924d2b821bdf1dcb8ed1);
+            
+        
+
+        circle_marker_fcdf22492f19c9cc9efb8b26f9bf03bb.bindPopup(popup_e2703eaafe5c712681e98df7ea5195d2)
+        ;
+
+        
+    
+    
+            circle_marker_fcdf22492f19c9cc9efb8b26f9bf03bb.bindTooltip(
+                `<div>
+                     Kan-code (0.586)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_857ad4d79477d3231be7612a0559c78e = L.circleMarker(
+                [37.291059, -121.935246],
+                {"bubblingMouseEvents": true, "color": "#e0f295", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e0f295", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 2}
+            ).addTo(map_85f61904956ef315f14874e9365d0a70);
+        
+    
+        var popup_1dac5bd45e1e67eaf37f0ce70e7842c6 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_52c816909cf4abe1d4b2973b89710ed9 = $(`<div id="html_52c816909cf4abe1d4b2973b89710ed9" style="width: 100.0%; height: 100.0%;">     <div style='font-family: Arial; min-width: 180px;'>         <h4 style='margin:0;'>Bioplex</h4>         <b>Industry:</b> medical<br>         <b>Priority:</b> 0.5838<br>         <b>Revenue:</b> $327M<br>         <b>Employees:</b> 1,016     </div>     </div>`)[0];
+                popup_1dac5bd45e1e67eaf37f0ce70e7842c6.setContent(html_52c816909cf4abe1d4b2973b89710ed9);
+            
+        
+
+        circle_marker_857ad4d79477d3231be7612a0559c78e.bindPopup(popup_1dac5bd45e1e67eaf37f0ce70e7842c6)
+        ;
+
+        
+    
+    
+            circle_marker_857ad4d79477d3231be7612a0559c78e.bindTooltip(
+                `<div>
+                     Bioplex (0.584)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_0b0e259728b00af8e1d928e423620c33 = L.circleMarker(
+                [37.321925, -121.863473],
+                {"bubblingMouseEvents": true, "color": "#e3f399", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e3f399", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 16.9985, "stroke": true, "weight": 2}
+            ).addTo(map_85f61904956ef315f14874e9365d0a70);
+        
+    
+        var popup_dd3b442cd9011cab4d9f2ea7e84d7849 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_db36e498f7eb3ebc9c5235981840b7ec = $(`<div id="html_db36e498f7eb3ebc9c5235981840b7ec" style="width: 100.0%; height: 100.0%;">     <div style='font-family: Arial; min-width: 180px;'>         <h4 style='margin:0;'>Sonron</h4>         <b>Industry:</b> telecommunications<br>         <b>Priority:</b> 0.5816<br>         <b>Revenue:</b> $1,700M<br>         <b>Employees:</b> 5,108     </div>     </div>`)[0];
+                popup_dd3b442cd9011cab4d9f2ea7e84d7849.setContent(html_db36e498f7eb3ebc9c5235981840b7ec);
+            
+        
+
+        circle_marker_0b0e259728b00af8e1d928e423620c33.bindPopup(popup_dd3b442cd9011cab4d9f2ea7e84d7849)
+        ;
+
+        
+    
+    
+            circle_marker_0b0e259728b00af8e1d928e423620c33.bindTooltip(
+                `<div>
+                     Sonron (0.582)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_03575883568a88e1d85f060fe96acb95 = L.circleMarker(
+                [37.324996, -121.868918],
+                {"bubblingMouseEvents": true, "color": "#e5f49b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e5f49b", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 20, "stroke": true, "weight": 2}
+            ).addTo(map_85f61904956ef315f14874e9365d0a70);
+        
+    
+        var popup_66b7880270e059625cb818efb7a4fdcc = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_e76559ab95c8c9213ad16b2db8713072 = $(`<div id="html_e76559ab95c8c9213ad16b2db8713072" style="width: 100.0%; height: 100.0%;">     <div style='font-family: Arial; min-width: 180px;'>         <h4 style='margin:0;'>Cheers</h4>         <b>Industry:</b> entertainment<br>         <b>Priority:</b> 0.5810<br>         <b>Revenue:</b> $4,270M<br>         <b>Employees:</b> 6,472     </div>     </div>`)[0];
+                popup_66b7880270e059625cb818efb7a4fdcc.setContent(html_e76559ab95c8c9213ad16b2db8713072);
+            
+        
+
+        circle_marker_03575883568a88e1d85f060fe96acb95.bindPopup(popup_66b7880270e059625cb818efb7a4fdcc)
+        ;
+
+        
+    
+    
+            circle_marker_03575883568a88e1d85f060fe96acb95.bindTooltip(
+                `<div>
+                     Cheers (0.581)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_bcd30ba02944727bfcb03a0d0799f7b6 = L.circleMarker(
+                [37.3656, -121.930692],
+                {"bubblingMouseEvents": true, "color": "#e6f59d", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e6f59d", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 20, "stroke": true, "weight": 2}
+            ).addTo(map_85f61904956ef315f14874e9365d0a70);
+        
+    
+        var popup_904347d66ea5ffcfc36e64e6c8cfde3e = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_67ec7bf682d5c22736058c3b95abccd7 = $(`<div id="html_67ec7bf682d5c22736058c3b95abccd7" style="width: 100.0%; height: 100.0%;">     <div style='font-family: Arial; min-width: 180px;'>         <h4 style='margin:0;'>Yearin</h4>         <b>Industry:</b> retail<br>         <b>Priority:</b> 0.5799<br>         <b>Revenue:</b> $2,261M<br>         <b>Employees:</b> 3,851     </div>     </div>`)[0];
+                popup_904347d66ea5ffcfc36e64e6c8cfde3e.setContent(html_67ec7bf682d5c22736058c3b95abccd7);
+            
+        
+
+        circle_marker_bcd30ba02944727bfcb03a0d0799f7b6.bindPopup(popup_904347d66ea5ffcfc36e64e6c8cfde3e)
+        ;
+
+        
+    
+    
+            circle_marker_bcd30ba02944727bfcb03a0d0799f7b6.bindTooltip(
+                `<div>
+                     Yearin (0.580)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_d06ab47bfba88fd84b300cbb785e6c72 = L.circleMarker(
+                [39.531564, -119.83553],
+                {"bubblingMouseEvents": true, "color": "#ebf7a3", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ebf7a3", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 13.767999999999999, "stroke": true, "weight": 2}
+            ).addTo(map_85f61904956ef315f14874e9365d0a70);
+        
+    
+        var popup_891680246a667c757197bf19d3b86f72 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_5e684254de314aca678d746b2c3fc23c = $(`<div id="html_5e684254de314aca678d746b2c3fc23c" style="width: 100.0%; height: 100.0%;">     <div style='font-family: Arial; min-width: 180px;'>         <h4 style='margin:0;'>Streethex</h4>         <b>Industry:</b> retail<br>         <b>Priority:</b> 0.5769<br>         <b>Revenue:</b> $1,377M<br>         <b>Employees:</b> 1,165     </div>     </div>`)[0];
+                popup_891680246a667c757197bf19d3b86f72.setContent(html_5e684254de314aca678d746b2c3fc23c);
+            
+        
+
+        circle_marker_d06ab47bfba88fd84b300cbb785e6c72.bindPopup(popup_891680246a667c757197bf19d3b86f72)
+        ;
+
+        
+    
+    
+            circle_marker_d06ab47bfba88fd84b300cbb785e6c72.bindTooltip(
+                `<div>
+                     Streethex (0.577)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_14c6609b9c8b5c39c963eebbe8781e62 = L.circleMarker(
+                [37.379859, -121.898762],
+                {"bubblingMouseEvents": true, "color": "#ecf7a6", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ecf7a6", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 20, "stroke": true, "weight": 2}
+            ).addTo(map_85f61904956ef315f14874e9365d0a70);
+        
+    
+        var popup_fd8ad57c77b79dad8203b7b821e70d34 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_86ef55bf8f67150dd9ae548ea39b1053 = $(`<div id="html_86ef55bf8f67150dd9ae548ea39b1053" style="width: 100.0%; height: 100.0%;">     <div style='font-family: Arial; min-width: 180px;'>         <h4 style='margin:0;'>Fasehatice</h4>         <b>Industry:</b> retail<br>         <b>Priority:</b> 0.5757<br>         <b>Revenue:</b> $4,969M<br>         <b>Employees:</b> 7,523     </div>     </div>`)[0];
+                popup_fd8ad57c77b79dad8203b7b821e70d34.setContent(html_86ef55bf8f67150dd9ae548ea39b1053);
+            
+        
+
+        circle_marker_14c6609b9c8b5c39c963eebbe8781e62.bindPopup(popup_fd8ad57c77b79dad8203b7b821e70d34)
+        ;
+
+        
+    
+    
+            circle_marker_14c6609b9c8b5c39c963eebbe8781e62.bindTooltip(
+                `<div>
+                     Fasehatice (0.576)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_d8911961b87387cf31fc70a68fe93b8f = L.circleMarker(
+                [37.361345, -121.880078],
+                {"bubblingMouseEvents": true, "color": "#eef8a8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#eef8a8", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8.8212, "stroke": true, "weight": 2}
+            ).addTo(map_85f61904956ef315f14874e9365d0a70);
+        
+    
+        var popup_9e0cda6d1872964e0c66ecae3b326991 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_f2bd12f416e17f6650da08a8b53191d5 = $(`<div id="html_f2bd12f416e17f6650da08a8b53191d5" style="width: 100.0%; height: 100.0%;">     <div style='font-family: Arial; min-width: 180px;'>         <h4 style='margin:0;'>Ontomedia</h4>         <b>Industry:</b> employment<br>         <b>Priority:</b> 0.5752<br>         <b>Revenue:</b> $882M<br>         <b>Employees:</b> 2,769     </div>     </div>`)[0];
+                popup_9e0cda6d1872964e0c66ecae3b326991.setContent(html_f2bd12f416e17f6650da08a8b53191d5);
+            
+        
+
+        circle_marker_d8911961b87387cf31fc70a68fe93b8f.bindPopup(popup_9e0cda6d1872964e0c66ecae3b326991)
+        ;
+
+        
+    
+    
+            circle_marker_d8911961b87387cf31fc70a68fe93b8f.bindTooltip(
+                `<div>
+                     Ontomedia (0.575)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_4cc0a2db7efa235a6887a5688a4d05cb = L.circleMarker(
+                [33.483532, -112.057449],
+                {"bubblingMouseEvents": true, "color": "#eef8a8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#eef8a8", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6.471799999999999, "stroke": true, "weight": 2}
+            ).addTo(map_85f61904956ef315f14874e9365d0a70);
+        
+    
+        var popup_25fded8582fd6aacab48a286ec5c46a0 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_e663f51cda58363d543ba64c98b22070 = $(`<div id="html_e663f51cda58363d543ba64c98b22070" style="width: 100.0%; height: 100.0%;">     <div style='font-family: Arial; min-width: 180px;'>         <h4 style='margin:0;'>Betatech</h4>         <b>Industry:</b> medical<br>         <b>Priority:</b> 0.5750<br>         <b>Revenue:</b> $647M<br>         <b>Employees:</b> 1,185     </div>     </div>`)[0];
+                popup_25fded8582fd6aacab48a286ec5c46a0.setContent(html_e663f51cda58363d543ba64c98b22070);
+            
+        
+
+        circle_marker_4cc0a2db7efa235a6887a5688a4d05cb.bindPopup(popup_25fded8582fd6aacab48a286ec5c46a0)
+        ;
+
+        
+    
+    
+            circle_marker_4cc0a2db7efa235a6887a5688a4d05cb.bindTooltip(
+                `<div>
+                     Betatech (0.575)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_c581e1432114de3766d72f75303bee8b = L.circleMarker(
+                [37.37071, -121.85138],
+                {"bubblingMouseEvents": true, "color": "#eef8a8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#eef8a8", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 2}
+            ).addTo(map_85f61904956ef315f14874e9365d0a70);
+        
+    
+        var popup_ca5591c9049674dcbca74ffdeb25c6e5 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_56405d6bb57435499dca1ed3b74fbc88 = $(`<div id="html_56405d6bb57435499dca1ed3b74fbc88" style="width: 100.0%; height: 100.0%;">     <div style='font-family: Arial; min-width: 180px;'>         <h4 style='margin:0;'>Zathunicon</h4>         <b>Industry:</b> retail<br>         <b>Priority:</b> 0.5748<br>         <b>Revenue:</b> $71M<br>         <b>Employees:</b> 144     </div>     </div>`)[0];
+                popup_ca5591c9049674dcbca74ffdeb25c6e5.setContent(html_56405d6bb57435499dca1ed3b74fbc88);
+            
+        
+
+        circle_marker_c581e1432114de3766d72f75303bee8b.bindPopup(popup_ca5591c9049674dcbca74ffdeb25c6e5)
+        ;
+
+        
+    
+    
+            circle_marker_c581e1432114de3766d72f75303bee8b.bindTooltip(
+                `<div>
+                     Zathunicon (0.575)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_84094f93e78aa10b22dbaf8e02628527 = L.circleMarker(
+                [33.473801, -112.085861],
+                {"bubblingMouseEvents": true, "color": "#f1f9ac", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f1f9ac", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8.9433, "stroke": true, "weight": 2}
+            ).addTo(map_85f61904956ef315f14874e9365d0a70);
+        
+    
+        var popup_a0a45fb896c29488a3e1a81b36cf3fc8 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_6a26f5223016cab84c8cc9a5fc7cfd9f = $(`<div id="html_6a26f5223016cab84c8cc9a5fc7cfd9f" style="width: 100.0%; height: 100.0%;">     <div style='font-family: Arial; min-width: 180px;'>         <h4 style='margin:0;'>Genco Pura Olive Oil Company</h4>         <b>Industry:</b> retail<br>         <b>Priority:</b> 0.5734<br>         <b>Revenue:</b> $894M<br>         <b>Employees:</b> 1,635     </div>     </div>`)[0];
+                popup_a0a45fb896c29488a3e1a81b36cf3fc8.setContent(html_6a26f5223016cab84c8cc9a5fc7cfd9f);
+            
+        
+
+        circle_marker_84094f93e78aa10b22dbaf8e02628527.bindPopup(popup_a0a45fb896c29488a3e1a81b36cf3fc8)
+        ;
+
+        
+    
+    
+            circle_marker_84094f93e78aa10b22dbaf8e02628527.bindTooltip(
+                `<div>
+                     Genco Pura Olive Oil Company (0.573)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_2bb3e431cf519d75fc1212a379f2d697 = L.circleMarker(
+                [37.33821, -121.845831],
+                {"bubblingMouseEvents": true, "color": "#f2faae", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f2faae", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 20, "stroke": true, "weight": 2}
+            ).addTo(map_85f61904956ef315f14874e9365d0a70);
+        
+    
+        var popup_7bee7230acb86b6e183b1250f9f65cc0 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_39d11dc3dbf33734becbd0f741179b05 = $(`<div id="html_39d11dc3dbf33734becbd0f741179b05" style="width: 100.0%; height: 100.0%;">     <div style='font-family: Arial; min-width: 180px;'>         <h4 style='margin:0;'>Plexzap</h4>         <b>Industry:</b> retail<br>         <b>Priority:</b> 0.5724<br>         <b>Revenue:</b> $2,438M<br>         <b>Employees:</b> 4,874     </div>     </div>`)[0];
+                popup_7bee7230acb86b6e183b1250f9f65cc0.setContent(html_39d11dc3dbf33734becbd0f741179b05);
+            
+        
+
+        circle_marker_2bb3e431cf519d75fc1212a379f2d697.bindPopup(popup_7bee7230acb86b6e183b1250f9f65cc0)
+        ;
+
+        
+    
+    
+            circle_marker_2bb3e431cf519d75fc1212a379f2d697.bindTooltip(
+                `<div>
+                     Plexzap (0.572)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_879b9643454230312902a3f2e4e34c9d = L.circleMarker(
+                [37.289219, -121.844955],
+                {"bubblingMouseEvents": true, "color": "#f5fbb2", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f5fbb2", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 20, "stroke": true, "weight": 2}
+            ).addTo(map_85f61904956ef315f14874e9365d0a70);
+        
+    
+        var popup_7b830cfe1fc7f3c29c573f48d21928c4 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_172a80c4d7ba58bf5cac410388f865a7 = $(`<div id="html_172a80c4d7ba58bf5cac410388f865a7" style="width: 100.0%; height: 100.0%;">     <div style='font-family: Arial; min-width: 180px;'>         <h4 style='margin:0;'>Umbrella Corporation</h4>         <b>Industry:</b> finance<br>         <b>Priority:</b> 0.5708<br>         <b>Revenue:</b> $2,022M<br>         <b>Employees:</b> 5,113     </div>     </div>`)[0];
+                popup_7b830cfe1fc7f3c29c573f48d21928c4.setContent(html_172a80c4d7ba58bf5cac410388f865a7);
+            
+        
+
+        circle_marker_879b9643454230312902a3f2e4e34c9d.bindPopup(popup_7b830cfe1fc7f3c29c573f48d21928c4)
+        ;
+
+        
+    
+    
+            circle_marker_879b9643454230312902a3f2e4e34c9d.bindTooltip(
+                `<div>
+                     Umbrella Corporation (0.571)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_df8074105a34bede01e92b5e9550f49d = L.circleMarker(
+                [37.383768, -121.859167],
+                {"bubblingMouseEvents": true, "color": "#f5fbb2", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f5fbb2", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 2}
+            ).addTo(map_85f61904956ef315f14874e9365d0a70);
+        
+    
+        var popup_5b74e8b56ae846d24327322a977df52a = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_25c45fd2550990882a22b68b97b70d00 = $(`<div id="html_25c45fd2550990882a22b68b97b70d00" style="width: 100.0%; height: 100.0%;">     <div style='font-family: Arial; min-width: 180px;'>         <h4 style='margin:0;'>Zumgoity</h4>         <b>Industry:</b> medical<br>         <b>Priority:</b> 0.5704<br>         <b>Revenue:</b> $441M<br>         <b>Employees:</b> 1,210     </div>     </div>`)[0];
+                popup_5b74e8b56ae846d24327322a977df52a.setContent(html_25c45fd2550990882a22b68b97b70d00);
+            
+        
+
+        circle_marker_df8074105a34bede01e92b5e9550f49d.bindPopup(popup_5b74e8b56ae846d24327322a977df52a)
+        ;
+
+        
+    
+    
+            circle_marker_df8074105a34bede01e92b5e9550f49d.bindTooltip(
+                `<div>
+                     Zumgoity (0.570)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_a54833abc618d5206dccf503215e21ed = L.circleMarker(
+                [37.308195, -121.847824],
+                {"bubblingMouseEvents": true, "color": "#f5fbb2", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f5fbb2", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 2}
+            ).addTo(map_85f61904956ef315f14874e9365d0a70);
+        
+    
+        var popup_caa4e3aa9d88ef4cb46c67181cb680c9 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_f2f194cb887a4a46d3a21cecad97e5c0 = $(`<div id="html_f2f194cb887a4a46d3a21cecad97e5c0" style="width: 100.0%; height: 100.0%;">     <div style='font-family: Arial; min-width: 180px;'>         <h4 style='margin:0;'>Scottech</h4>         <b>Industry:</b> marketing<br>         <b>Priority:</b> 0.5700<br>         <b>Revenue:</b> $45M<br>         <b>Employees:</b> 100     </div>     </div>`)[0];
+                popup_caa4e3aa9d88ef4cb46c67181cb680c9.setContent(html_f2f194cb887a4a46d3a21cecad97e5c0);
+            
+        
+
+        circle_marker_a54833abc618d5206dccf503215e21ed.bindPopup(popup_caa4e3aa9d88ef4cb46c67181cb680c9)
+        ;
+
+        
+    
+    
+            circle_marker_a54833abc618d5206dccf503215e21ed.bindTooltip(
+                `<div>
+                     Scottech (0.570)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_a19508a6847ffad10155c7c611a13b6d = L.circleMarker(
+                [37.372338, -121.847645],
+                {"bubblingMouseEvents": true, "color": "#fafdb8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#fafdb8", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 2}
+            ).addTo(map_85f61904956ef315f14874e9365d0a70);
+        
+    
+        var popup_bccbde05f4e0d72a7654bfee99691008 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_f19bb465cc048eb02fe5a4983ff86966 = $(`<div id="html_f19bb465cc048eb02fe5a4983ff86966" style="width: 100.0%; height: 100.0%;">     <div style='font-family: Arial; min-width: 180px;'>         <h4 style='margin:0;'>Zoomit</h4>         <b>Industry:</b> entertainment<br>         <b>Priority:</b> 0.5680<br>         <b>Revenue:</b> $324M<br>         <b>Employees:</b> 978     </div>     </div>`)[0];
+                popup_bccbde05f4e0d72a7654bfee99691008.setContent(html_f19bb465cc048eb02fe5a4983ff86966);
+            
+        
+
+        circle_marker_a19508a6847ffad10155c7c611a13b6d.bindPopup(popup_bccbde05f4e0d72a7654bfee99691008)
+        ;
+
+        
+    
+    
+            circle_marker_a19508a6847ffad10155c7c611a13b6d.bindTooltip(
+                `<div>
+                     Zoomit (0.568)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_068daccb1b8bc54e687c06d8f86ca983 = L.circleMarker(
+                [38.562107, -121.505256],
+                {"bubblingMouseEvents": true, "color": "#fafdb8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#fafdb8", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 2}
+            ).addTo(map_85f61904956ef315f14874e9365d0a70);
+        
+    
+        var popup_01b56c0c87ae774046b0ac46f4c8dfff = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_21dbb57b7adfd6a38e80a0e01f501187 = $(`<div id="html_21dbb57b7adfd6a38e80a0e01f501187" style="width: 100.0%; height: 100.0%;">     <div style='font-family: Arial; min-width: 180px;'>         <h4 style='margin:0;'>Zencorporation</h4>         <b>Industry:</b> technolgy<br>         <b>Priority:</b> 0.5676<br>         <b>Revenue:</b> $41M<br>         <b>Employees:</b> 142     </div>     </div>`)[0];
+                popup_01b56c0c87ae774046b0ac46f4c8dfff.setContent(html_21dbb57b7adfd6a38e80a0e01f501187);
+            
+        
+
+        circle_marker_068daccb1b8bc54e687c06d8f86ca983.bindPopup(popup_01b56c0c87ae774046b0ac46f4c8dfff)
+        ;
+
+        
+    
+    
+            circle_marker_068daccb1b8bc54e687c06d8f86ca983.bindTooltip(
+                `<div>
+                     Zencorporation (0.568)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_d4ce080e029adab9e22e452c72eea5d7 = L.circleMarker(
+                [37.304337, -121.848742],
+                {"bubblingMouseEvents": true, "color": "#fafdb8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#fafdb8", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 20, "stroke": true, "weight": 2}
+            ).addTo(map_85f61904956ef315f14874e9365d0a70);
+        
+    
+        var popup_f67e693daec1949927aa534b75d2f677 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_15896eaa719a91c7113f5342c0d97f9e = $(`<div id="html_15896eaa719a91c7113f5342c0d97f9e" style="width: 100.0%; height: 100.0%;">     <div style='font-family: Arial; min-width: 180px;'>         <h4 style='margin:0;'>Labdrill</h4>         <b>Industry:</b> medical<br>         <b>Priority:</b> 0.5672<br>         <b>Revenue:</b> $2,741M<br>         <b>Employees:</b> 9,226     </div>     </div>`)[0];
+                popup_f67e693daec1949927aa534b75d2f677.setContent(html_15896eaa719a91c7113f5342c0d97f9e);
+            
+        
+
+        circle_marker_d4ce080e029adab9e22e452c72eea5d7.bindPopup(popup_f67e693daec1949927aa534b75d2f677)
+        ;
+
+        
+    
+    
+            circle_marker_d4ce080e029adab9e22e452c72eea5d7.bindTooltip(
+                `<div>
+                     Labdrill (0.567)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_2316aef17ad47cc8524da61909bfc740 = L.circleMarker(
+                [34.012316, -118.278402],
+                {"bubblingMouseEvents": true, "color": "#fbfdba", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#fbfdba", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 20, "stroke": true, "weight": 2}
+            ).addTo(map_85f61904956ef315f14874e9365d0a70);
+        
+    
+        var popup_408d1e69a8335bb1f26e02fbfe80f75f = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_b44627bf58fdf4d9a2431005ed0fc356 = $(`<div id="html_b44627bf58fdf4d9a2431005ed0fc356" style="width: 100.0%; height: 100.0%;">     <div style='font-family: Arial; min-width: 180px;'>         <h4 style='margin:0;'>Ganjaflex</h4>         <b>Industry:</b> retail<br>         <b>Priority:</b> 0.5670<br>         <b>Revenue:</b> $5,159M<br>         <b>Employees:</b> 17,479     </div>     </div>`)[0];
+                popup_408d1e69a8335bb1f26e02fbfe80f75f.setContent(html_b44627bf58fdf4d9a2431005ed0fc356);
+            
+        
+
+        circle_marker_2316aef17ad47cc8524da61909bfc740.bindPopup(popup_408d1e69a8335bb1f26e02fbfe80f75f)
+        ;
+
+        
+    
+    
+            circle_marker_2316aef17ad47cc8524da61909bfc740.bindTooltip(
+                `<div>
+                     Ganjaflex (0.567)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_c4abefd65e4bad61d812076693576d30 = L.circleMarker(
+                [37.317278, -121.933471],
+                {"bubblingMouseEvents": true, "color": "#fbfdba", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#fbfdba", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 2}
+            ).addTo(map_85f61904956ef315f14874e9365d0a70);
+        
+    
+        var popup_39043c45f32a34a63b8974af24a54fd2 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_55ae3f6ed881d1566e7e6160a56d283d = $(`<div id="html_55ae3f6ed881d1566e7e6160a56d283d" style="width: 100.0%; height: 100.0%;">     <div style='font-family: Arial; min-width: 180px;'>         <h4 style='margin:0;'>Konmatfix</h4>         <b>Industry:</b> marketing<br>         <b>Priority:</b> 0.5665<br>         <b>Revenue:</b> $375M<br>         <b>Employees:</b> 1,190     </div>     </div>`)[0];
+                popup_39043c45f32a34a63b8974af24a54fd2.setContent(html_55ae3f6ed881d1566e7e6160a56d283d);
+            
+        
+
+        circle_marker_c4abefd65e4bad61d812076693576d30.bindPopup(popup_39043c45f32a34a63b8974af24a54fd2)
+        ;
+
+        
+    
+    
+            circle_marker_c4abefd65e4bad61d812076693576d30.bindTooltip(
+                `<div>
+                     Konmatfix (0.567)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_0741af92eb14a36e41bda90049a138fd = L.circleMarker(
+                [37.306686, -121.884158],
+                {"bubblingMouseEvents": true, "color": "#fffab6", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#fffab6", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 20, "stroke": true, "weight": 2}
+            ).addTo(map_85f61904956ef315f14874e9365d0a70);
+        
+    
+        var popup_20c09c23ac7224c41b32d43f1d7edb82 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_94661b9a45384a8b4d2baa2788a7ccf1 = $(`<div id="html_94661b9a45384a8b4d2baa2788a7ccf1" style="width: 100.0%; height: 100.0%;">     <div style='font-family: Arial; min-width: 180px;'>         <h4 style='margin:0;'>Treequote</h4>         <b>Industry:</b> telecommunications<br>         <b>Priority:</b> 0.5599<br>         <b>Revenue:</b> $5,266M<br>         <b>Employees:</b> 8,595     </div>     </div>`)[0];
+                popup_20c09c23ac7224c41b32d43f1d7edb82.setContent(html_94661b9a45384a8b4d2baa2788a7ccf1);
+            
+        
+
+        circle_marker_0741af92eb14a36e41bda90049a138fd.bindPopup(popup_20c09c23ac7224c41b32d43f1d7edb82)
+        ;
+
+        
+    
+    
+            circle_marker_0741af92eb14a36e41bda90049a138fd.bindTooltip(
+                `<div>
+                     Treequote (0.560)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_ae2b8819f60e5805894c9ebab06124f5 = L.circleMarker(
+                [37.347799, -121.912976],
+                {"bubblingMouseEvents": true, "color": "#fff7b2", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#fff7b2", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5.8772, "stroke": true, "weight": 2}
+            ).addTo(map_85f61904956ef315f14874e9365d0a70);
+        
+    
+        var popup_19324e41a946b6832cde4a379ac43b5c = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_bd30ee8a0a59a3ce5f1913bc3deda2f6 = $(`<div id="html_bd30ee8a0a59a3ce5f1913bc3deda2f6" style="width: 100.0%; height: 100.0%;">     <div style='font-family: Arial; min-width: 180px;'>         <h4 style='margin:0;'>Doncon</h4>         <b>Industry:</b> technolgy<br>         <b>Priority:</b> 0.5584<br>         <b>Revenue:</b> $588M<br>         <b>Employees:</b> 1,501     </div>     </div>`)[0];
+                popup_19324e41a946b6832cde4a379ac43b5c.setContent(html_bd30ee8a0a59a3ce5f1913bc3deda2f6);
+            
+        
+
+        circle_marker_ae2b8819f60e5805894c9ebab06124f5.bindPopup(popup_19324e41a946b6832cde4a379ac43b5c)
+        ;
+
+        
+    
+    
+            circle_marker_ae2b8819f60e5805894c9ebab06124f5.bindTooltip(
+                `<div>
+                     Doncon (0.558)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_f7648d8fe53d0ffeaa175a9806a74ce3 = L.circleMarker(
+                [37.30412, -121.914044],
+                {"bubblingMouseEvents": true, "color": "#fff5ae", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#fff5ae", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 15.206600000000002, "stroke": true, "weight": 2}
+            ).addTo(map_85f61904956ef315f14874e9365d0a70);
+        
+    
+        var popup_d45ce596c2be5be37196e0820f2e9945 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_1e0b05e072adfcdb5666ce97401e087b = $(`<div id="html_1e0b05e072adfcdb5666ce97401e087b" style="width: 100.0%; height: 100.0%;">     <div style='font-family: Arial; min-width: 180px;'>         <h4 style='margin:0;'>Conecom</h4>         <b>Industry:</b> technolgy<br>         <b>Priority:</b> 0.5558<br>         <b>Revenue:</b> $1,521M<br>         <b>Employees:</b> 1,806     </div>     </div>`)[0];
+                popup_d45ce596c2be5be37196e0820f2e9945.setContent(html_1e0b05e072adfcdb5666ce97401e087b);
+            
+        
+
+        circle_marker_f7648d8fe53d0ffeaa175a9806a74ce3.bindPopup(popup_d45ce596c2be5be37196e0820f2e9945)
+        ;
+
+        
+    
+    
+            circle_marker_f7648d8fe53d0ffeaa175a9806a74ce3.bindTooltip(
+                `<div>
+                     Conecom (0.556)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_1206f74a1f8e0b555f095c63284c1882 = L.circleMarker(
+                [36.144076, -115.171975],
+                {"bubblingMouseEvents": true, "color": "#fff2aa", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#fff2aa", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 20, "stroke": true, "weight": 2}
+            ).addTo(map_85f61904956ef315f14874e9365d0a70);
+        
+    
+        var popup_b55f0f3ba06ee8a2506976643c5b829a = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_2906f685c55969fcbdc7f25193412785 = $(`<div id="html_2906f685c55969fcbdc7f25193412785" style="width: 100.0%; height: 100.0%;">     <div style='font-family: Arial; min-width: 180px;'>         <h4 style='margin:0;'>Hottechi</h4>         <b>Industry:</b> technolgy<br>         <b>Priority:</b> 0.5542<br>         <b>Revenue:</b> $8,170M<br>         <b>Employees:</b> 16,499     </div>     </div>`)[0];
+                popup_b55f0f3ba06ee8a2506976643c5b829a.setContent(html_2906f685c55969fcbdc7f25193412785);
+            
+        
+
+        circle_marker_1206f74a1f8e0b555f095c63284c1882.bindPopup(popup_b55f0f3ba06ee8a2506976643c5b829a)
+        ;
+
+        
+    
+    
+            circle_marker_1206f74a1f8e0b555f095c63284c1882.bindTooltip(
+                `<div>
+                     Hottechi (0.554)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_ecf9aca53b83dc108b81a2fb067a7111 = L.circleMarker(
+                [37.358541, -121.920761],
+                {"bubblingMouseEvents": true, "color": "#feefa3", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#feefa3", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 20, "stroke": true, "weight": 2}
+            ).addTo(map_85f61904956ef315f14874e9365d0a70);
+        
+    
+        var popup_13e289e3db629eb70306197dfe27abd2 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_5a132b98dcff54ba2320a8c03c836da0 = $(`<div id="html_5a132b98dcff54ba2320a8c03c836da0" style="width: 100.0%; height: 100.0%;">     <div style='font-family: Arial; min-width: 180px;'>         <h4 style='margin:0;'>Xx-holding</h4>         <b>Industry:</b> finance<br>         <b>Priority:</b> 0.5509<br>         <b>Revenue:</b> $7,537M<br>         <b>Employees:</b> 20,293     </div>     </div>`)[0];
+                popup_13e289e3db629eb70306197dfe27abd2.setContent(html_5a132b98dcff54ba2320a8c03c836da0);
+            
+        
+
+        circle_marker_ecf9aca53b83dc108b81a2fb067a7111.bindPopup(popup_13e289e3db629eb70306197dfe27abd2)
+        ;
+
+        
+    
+    
+            circle_marker_ecf9aca53b83dc108b81a2fb067a7111.bindTooltip(
+                `<div>
+                     Xx-holding (0.551)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_18972bddafcd013f03ac87bb459a1bfc = L.circleMarker(
+                [37.343285, -121.836699],
+                {"bubblingMouseEvents": true, "color": "#feeda1", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#feeda1", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11.8842, "stroke": true, "weight": 2}
+            ).addTo(map_85f61904956ef315f14874e9365d0a70);
+        
+    
+        var popup_722dea775ccbbab46b1c2cd9d17125dc = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_4a1dbe479af2a167c8d43d302b540660 = $(`<div id="html_4a1dbe479af2a167c8d43d302b540660" style="width: 100.0%; height: 100.0%;">     <div style='font-family: Arial; min-width: 180px;'>         <h4 style='margin:0;'>Rantouch</h4>         <b>Industry:</b> telecommunications<br>         <b>Priority:</b> 0.5503<br>         <b>Revenue:</b> $1,188M<br>         <b>Employees:</b> 3,015     </div>     </div>`)[0];
+                popup_722dea775ccbbab46b1c2cd9d17125dc.setContent(html_4a1dbe479af2a167c8d43d302b540660);
+            
+        
+
+        circle_marker_18972bddafcd013f03ac87bb459a1bfc.bindPopup(popup_722dea775ccbbab46b1c2cd9d17125dc)
+        ;
+
+        
+    
+    
+            circle_marker_18972bddafcd013f03ac87bb459a1bfc.bindTooltip(
+                `<div>
+                     Rantouch (0.550)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_1edf3246581a5feb6562f946a2e9358c = L.circleMarker(
+                [33.412593, -112.039704],
+                {"bubblingMouseEvents": true, "color": "#feeb9d", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#feeb9d", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 12.2372, "stroke": true, "weight": 2}
+            ).addTo(map_85f61904956ef315f14874e9365d0a70);
+        
+    
+        var popup_49ada32554a14d98e591242257159c7b = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_79797bec0a6988558fe3654c821b5d81 = $(`<div id="html_79797bec0a6988558fe3654c821b5d81" style="width: 100.0%; height: 100.0%;">     <div style='font-family: Arial; min-width: 180px;'>         <h4 style='margin:0;'>Globex Corporation</h4>         <b>Industry:</b> technolgy<br>         <b>Priority:</b> 0.5486<br>         <b>Revenue:</b> $1,224M<br>         <b>Employees:</b> 2,497     </div>     </div>`)[0];
+                popup_49ada32554a14d98e591242257159c7b.setContent(html_79797bec0a6988558fe3654c821b5d81);
+            
+        
+
+        circle_marker_1edf3246581a5feb6562f946a2e9358c.bindPopup(popup_49ada32554a14d98e591242257159c7b)
+        ;
+
+        
+    
+    
+            circle_marker_1edf3246581a5feb6562f946a2e9358c.bindTooltip(
+                `<div>
+                     Globex Corporation (0.549)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_9db09b6a42e8a00b355d4756c99d3b46 = L.circleMarker(
+                [37.343319, -121.865254],
+                {"bubblingMouseEvents": true, "color": "#feea9b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#feea9b", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7.027200000000001, "stroke": true, "weight": 2}
+            ).addTo(map_85f61904956ef315f14874e9365d0a70);
+        
+    
+        var popup_ba1f5b694b87079c315539c2d07266b1 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_20eb4d29394fb5db921ed42c6fcff27e = $(`<div id="html_20eb4d29394fb5db921ed42c6fcff27e" style="width: 100.0%; height: 100.0%;">     <div style='font-family: Arial; min-width: 180px;'>         <h4 style='margin:0;'>Kinnamplus</h4>         <b>Industry:</b> retail<br>         <b>Priority:</b> 0.5472<br>         <b>Revenue:</b> $703M<br>         <b>Employees:</b> 1,831     </div>     </div>`)[0];
+                popup_ba1f5b694b87079c315539c2d07266b1.setContent(html_20eb4d29394fb5db921ed42c6fcff27e);
+            
+        
+
+        circle_marker_9db09b6a42e8a00b355d4756c99d3b46.bindPopup(popup_ba1f5b694b87079c315539c2d07266b1)
+        ;
+
+        
+    
+    
+            circle_marker_9db09b6a42e8a00b355d4756c99d3b46.bindTooltip(
+                `<div>
+                     Kinnamplus (0.547)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_bd1f03c96dd8c0418423923ae3d5079b = L.circleMarker(
+                [37.370409, -121.864448],
+                {"bubblingMouseEvents": true, "color": "#fee797", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#fee797", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 20, "stroke": true, "weight": 2}
+            ).addTo(map_85f61904956ef315f14874e9365d0a70);
+        
+    
+        var popup_0be831d32386937730962fe7825f73c3 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_4539f4e9ccc7c94b4a28d62e0384e8f2 = $(`<div id="html_4539f4e9ccc7c94b4a28d62e0384e8f2" style="width: 100.0%; height: 100.0%;">     <div style='font-family: Arial; min-width: 180px;'>         <h4 style='margin:0;'>Isdom</h4>         <b>Industry:</b> medical<br>         <b>Priority:</b> 0.5459<br>         <b>Revenue:</b> $3,178M<br>         <b>Employees:</b> 4,540     </div>     </div>`)[0];
+                popup_0be831d32386937730962fe7825f73c3.setContent(html_4539f4e9ccc7c94b4a28d62e0384e8f2);
+            
+        
+
+        circle_marker_bd1f03c96dd8c0418423923ae3d5079b.bindPopup(popup_0be831d32386937730962fe7825f73c3)
+        ;
+
+        
+    
+    
+            circle_marker_bd1f03c96dd8c0418423923ae3d5079b.bindTooltip(
+                `<div>
+                     Isdom (0.546)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_6694c880d9016ec8e98e0d4cd116de78 = L.circleMarker(
+                [37.385171, -121.869055],
+                {"bubblingMouseEvents": true, "color": "#fee797", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#fee797", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 2}
+            ).addTo(map_85f61904956ef315f14874e9365d0a70);
+        
+    
+        var popup_bc4daeac3d446092acef54e1e79ec4cf = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_8c5121b43173a23948c661dc011920ca = $(`<div id="html_8c5121b43173a23948c661dc011920ca" style="width: 100.0%; height: 100.0%;">     <div style='font-family: Arial; min-width: 180px;'>         <h4 style='margin:0;'>Groovestreet</h4>         <b>Industry:</b> retail<br>         <b>Priority:</b> 0.5457<br>         <b>Revenue:</b> $224M<br>         <b>Employees:</b> 299     </div>     </div>`)[0];
+                popup_bc4daeac3d446092acef54e1e79ec4cf.setContent(html_8c5121b43173a23948c661dc011920ca);
+            
+        
+
+        circle_marker_6694c880d9016ec8e98e0d4cd116de78.bindPopup(popup_bc4daeac3d446092acef54e1e79ec4cf)
+        ;
+
+        
+    
+    
+            circle_marker_6694c880d9016ec8e98e0d4cd116de78.bindTooltip(
+                `<div>
+                     Groovestreet (0.546)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_70e49432c91791e34fc31777acf1f731 = L.circleMarker(
+                [37.29325, -121.84294],
+                {"bubblingMouseEvents": true, "color": "#fee695", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#fee695", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 18.2582, "stroke": true, "weight": 2}
+            ).addTo(map_85f61904956ef315f14874e9365d0a70);
+        
+    
+        var popup_0b49c16d900e3ac273b851c1a576d53a = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_d49f212f864fd20946f4a594184dfe62 = $(`<div id="html_d49f212f864fd20946f4a594184dfe62" style="width: 100.0%; height: 100.0%;">     <div style='font-family: Arial; min-width: 180px;'>         <h4 style='margin:0;'>Faxquote</h4>         <b>Industry:</b> telecommunications<br>         <b>Priority:</b> 0.5451<br>         <b>Revenue:</b> $1,826M<br>         <b>Employees:</b> 5,595     </div>     </div>`)[0];
+                popup_0b49c16d900e3ac273b851c1a576d53a.setContent(html_d49f212f864fd20946f4a594184dfe62);
+            
+        
+
+        circle_marker_70e49432c91791e34fc31777acf1f731.bindPopup(popup_0b49c16d900e3ac273b851c1a576d53a)
+        ;
+
+        
+    
+    
+            circle_marker_70e49432c91791e34fc31777acf1f731.bindTooltip(
+                `<div>
+                     Faxquote (0.545)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_90fa042c6b6fa56ac036f3d6f8c117d3 = L.circleMarker(
+                [37.365354, -121.839669],
+                {"bubblingMouseEvents": true, "color": "#fee593", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#fee593", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7.1862, "stroke": true, "weight": 2}
+            ).addTo(map_85f61904956ef315f14874e9365d0a70);
+        
+    
+        var popup_be0dad91e4b0990097629d13e0f1ac1f = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_3380ff5263c7eeb49782c6aa9578a5e2 = $(`<div id="html_3380ff5263c7eeb49782c6aa9578a5e2" style="width: 100.0%; height: 100.0%;">     <div style='font-family: Arial; min-width: 180px;'>         <h4 style='margin:0;'>Cancity</h4>         <b>Industry:</b> retail<br>         <b>Priority:</b> 0.5438<br>         <b>Revenue:</b> $719M<br>         <b>Employees:</b> 2,448     </div>     </div>`)[0];
+                popup_be0dad91e4b0990097629d13e0f1ac1f.setContent(html_3380ff5263c7eeb49782c6aa9578a5e2);
+            
+        
+
+        circle_marker_90fa042c6b6fa56ac036f3d6f8c117d3.bindPopup(popup_be0dad91e4b0990097629d13e0f1ac1f)
+        ;
+
+        
+    
+    
+            circle_marker_90fa042c6b6fa56ac036f3d6f8c117d3.bindTooltip(
+                `<div>
+                     Cancity (0.544)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_f74bf8f191c724e66c02768d58001eca = L.circleMarker(
+                [37.377242, -121.901356],
+                {"bubblingMouseEvents": true, "color": "#fee28f", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#fee28f", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 20, "stroke": true, "weight": 2}
+            ).addTo(map_85f61904956ef315f14874e9365d0a70);
+        
+    
+        var popup_56d628de927ec677e47e6233ef6bd447 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_dbec97da1dcb01f36ffb95ee2a6a1051 = $(`<div id="html_dbec97da1dcb01f36ffb95ee2a6a1051" style="width: 100.0%; height: 100.0%;">     <div style='font-family: Arial; min-width: 180px;'>         <h4 style='margin:0;'>Dontechi</h4>         <b>Industry:</b> software<br>         <b>Priority:</b> 0.5420<br>         <b>Revenue:</b> $4,618M<br>         <b>Employees:</b> 10,083     </div>     </div>`)[0];
+                popup_56d628de927ec677e47e6233ef6bd447.setContent(html_dbec97da1dcb01f36ffb95ee2a6a1051);
+            
+        
+
+        circle_marker_f74bf8f191c724e66c02768d58001eca.bindPopup(popup_56d628de927ec677e47e6233ef6bd447)
+        ;
+
+        
+    
+    
+            circle_marker_f74bf8f191c724e66c02768d58001eca.bindTooltip(
+                `<div>
+                     Dontechi (0.542)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_2f544e8924636040a89ef8eee48a0343 = L.circleMarker(
+                [37.312943, -121.889134],
+                {"bubblingMouseEvents": true, "color": "#fee18d", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#fee18d", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 20, "stroke": true, "weight": 2}
+            ).addTo(map_85f61904956ef315f14874e9365d0a70);
+        
+    
+        var popup_4bda893f31f4434fbc55d5033d6ad1da = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_fcbd70a85c994b59ea3b7f92b133e2e0 = $(`<div id="html_fcbd70a85c994b59ea3b7f92b133e2e0" style="width: 100.0%; height: 100.0%;">     <div style='font-family: Arial; min-width: 180px;'>         <h4 style='margin:0;'>Funholding</h4>         <b>Industry:</b> finance<br>         <b>Priority:</b> 0.5410<br>         <b>Revenue:</b> $2,820M<br>         <b>Employees:</b> 7,227     </div>     </div>`)[0];
+                popup_4bda893f31f4434fbc55d5033d6ad1da.setContent(html_fcbd70a85c994b59ea3b7f92b133e2e0);
+            
+        
+
+        circle_marker_2f544e8924636040a89ef8eee48a0343.bindPopup(popup_4bda893f31f4434fbc55d5033d6ad1da)
+        ;
+
+        
+    
+    
+            circle_marker_2f544e8924636040a89ef8eee48a0343.bindTooltip(
+                `<div>
+                     Funholding (0.541)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_fc82bf7cea18af34e028152ade671a7e = L.circleMarker(
+                [37.313275, -121.931809],
+                {"bubblingMouseEvents": true, "color": "#fee18d", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#fee18d", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 2}
+            ).addTo(map_85f61904956ef315f14874e9365d0a70);
+        
+    
+        var popup_44cebef0532d02b12099f9230d744e45 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_cb69674350be6599dafd65d3261067f3 = $(`<div id="html_cb69674350be6599dafd65d3261067f3" style="width: 100.0%; height: 100.0%;">     <div style='font-family: Arial; min-width: 180px;'>         <h4 style='margin:0;'>Toughzap</h4>         <b>Industry:</b> retail<br>         <b>Priority:</b> 0.5410<br>         <b>Revenue:</b> $332M<br>         <b>Employees:</b> 799     </div>     </div>`)[0];
+                popup_44cebef0532d02b12099f9230d744e45.setContent(html_cb69674350be6599dafd65d3261067f3);
+            
+        
+
+        circle_marker_fc82bf7cea18af34e028152ade671a7e.bindPopup(popup_44cebef0532d02b12099f9230d744e45)
+        ;
+
+        
+    
+    
+            circle_marker_fc82bf7cea18af34e028152ade671a7e.bindTooltip(
+                `<div>
+                     Toughzap (0.541)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_4eba08a2dfa908ba0dee94db04147185 = L.circleMarker(
+                [37.357063, -121.899315],
+                {"bubblingMouseEvents": true, "color": "#fedc88", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#fedc88", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 2}
+            ).addTo(map_85f61904956ef315f14874e9365d0a70);
+        
+    
+        var popup_edca736c8b0460ed556191719396a646 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_ac5e48fea9ed60c6938e602fe74b338e = $(`<div id="html_ac5e48fea9ed60c6938e602fe74b338e" style="width: 100.0%; height: 100.0%;">     <div style='font-family: Arial; min-width: 180px;'>         <h4 style='margin:0;'>The New York Inquirer</h4>         <b>Industry:</b> medical<br>         <b>Priority:</b> 0.5378<br>         <b>Revenue:</b> $439M<br>         <b>Employees:</b> 792     </div>     </div>`)[0];
+                popup_edca736c8b0460ed556191719396a646.setContent(html_ac5e48fea9ed60c6938e602fe74b338e);
+            
+        
+
+        circle_marker_4eba08a2dfa908ba0dee94db04147185.bindPopup(popup_edca736c8b0460ed556191719396a646)
+        ;
+
+        
+    
+    
+            circle_marker_4eba08a2dfa908ba0dee94db04147185.bindTooltip(
+                `<div>
+                     The New York Inquirer (0.538)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_b579cce725d30aade99799ace64cee69 = L.circleMarker(
+                [37.378551, -121.905691],
+                {"bubblingMouseEvents": true, "color": "#fed27f", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#fed27f", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 14.1998, "stroke": true, "weight": 2}
+            ).addTo(map_85f61904956ef315f14874e9365d0a70);
+        
+    
+        var popup_ebd6c29ed49bc4031ff4129289bd0183 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_a6b87dda32764b43fb8b330dffa6e94d = $(`<div id="html_a6b87dda32764b43fb8b330dffa6e94d" style="width: 100.0%; height: 100.0%;">     <div style='font-family: Arial; min-width: 180px;'>         <h4 style='margin:0;'>Plussunin</h4>         <b>Industry:</b> retail<br>         <b>Priority:</b> 0.5336<br>         <b>Revenue:</b> $1,420M<br>         <b>Employees:</b> 4,018     </div>     </div>`)[0];
+                popup_ebd6c29ed49bc4031ff4129289bd0183.setContent(html_a6b87dda32764b43fb8b330dffa6e94d);
+            
+        
+
+        circle_marker_b579cce725d30aade99799ace64cee69.bindPopup(popup_ebd6c29ed49bc4031ff4129289bd0183)
+        ;
+
+        
+    
+    
+            circle_marker_b579cce725d30aade99799ace64cee69.bindTooltip(
+                `<div>
+                     Plussunin (0.534)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_2cc493ca3f283705abad936a26bba83d = L.circleMarker(
+                [36.151433, -115.131821],
+                {"bubblingMouseEvents": true, "color": "#fece7c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#fece7c", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5.8734, "stroke": true, "weight": 2}
+            ).addTo(map_85f61904956ef315f14874e9365d0a70);
+        
+    
+        var popup_06dae1c62267844a1150f623b6808b0c = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_bd1c0a8d308d401c238e28020476f1b7 = $(`<div id="html_bd1c0a8d308d401c238e28020476f1b7" style="width: 100.0%; height: 100.0%;">     <div style='font-family: Arial; min-width: 180px;'>         <h4 style='margin:0;'>Bioholding</h4>         <b>Industry:</b> medical<br>         <b>Priority:</b> 0.5313<br>         <b>Revenue:</b> $587M<br>         <b>Employees:</b> 1,356     </div>     </div>`)[0];
+                popup_06dae1c62267844a1150f623b6808b0c.setContent(html_bd1c0a8d308d401c238e28020476f1b7);
+            
+        
+
+        circle_marker_2cc493ca3f283705abad936a26bba83d.bindPopup(popup_06dae1c62267844a1150f623b6808b0c)
+        ;
+
+        
+    
+    
+            circle_marker_2cc493ca3f283705abad936a26bba83d.bindTooltip(
+                `<div>
+                     Bioholding (0.531)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_a6b77155511a145121a714c5f6260706 = L.circleMarker(
+                [37.380119, -121.896188],
+                {"bubblingMouseEvents": true, "color": "#fec877", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#fec877", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11.0243, "stroke": true, "weight": 2}
+            ).addTo(map_85f61904956ef315f14874e9365d0a70);
+        
+    
+        var popup_fcbf64ee6b0e5094413ee7ccaa873f25 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_e78c8805933bfc5e83678af1d89d46cf = $(`<div id="html_e78c8805933bfc5e83678af1d89d46cf" style="width: 100.0%; height: 100.0%;">     <div style='font-family: Arial; min-width: 180px;'>         <h4 style='margin:0;'>Finhigh</h4>         <b>Industry:</b> finance<br>         <b>Priority:</b> 0.5288<br>         <b>Revenue:</b> $1,102M<br>         <b>Employees:</b> 1,759     </div>     </div>`)[0];
+                popup_fcbf64ee6b0e5094413ee7ccaa873f25.setContent(html_e78c8805933bfc5e83678af1d89d46cf);
+            
+        
+
+        circle_marker_a6b77155511a145121a714c5f6260706.bindPopup(popup_fcbf64ee6b0e5094413ee7ccaa873f25)
+        ;
+
+        
+    
+    
+            circle_marker_a6b77155511a145121a714c5f6260706.bindTooltip(
+                `<div>
+                     Finhigh (0.529)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_97a530297cceb27da3d14552efcf857d = L.circleMarker(
+                [37.321013, -121.922036],
+                {"bubblingMouseEvents": true, "color": "#fec877", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#fec877", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 20, "stroke": true, "weight": 2}
+            ).addTo(map_85f61904956ef315f14874e9365d0a70);
+        
+    
+        var popup_23ab827f983e23bcfd7184ece05e1e6d = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_029a96f50e5497627262c8610a295f55 = $(`<div id="html_029a96f50e5497627262c8610a295f55" style="width: 100.0%; height: 100.0%;">     <div style='font-family: Arial; min-width: 180px;'>         <h4 style='margin:0;'>Initech</h4>         <b>Industry:</b> telecommunications<br>         <b>Priority:</b> 0.5280<br>         <b>Revenue:</b> $6,395M<br>         <b>Employees:</b> 20,275     </div>     </div>`)[0];
+                popup_23ab827f983e23bcfd7184ece05e1e6d.setContent(html_029a96f50e5497627262c8610a295f55);
+            
+        
+
+        circle_marker_97a530297cceb27da3d14552efcf857d.bindPopup(popup_23ab827f983e23bcfd7184ece05e1e6d)
+        ;
+
+        
+    
+    
+            circle_marker_97a530297cceb27da3d14552efcf857d.bindTooltip(
+                `<div>
+                     Initech (0.528)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_daef50c8df78031560070992ded5a945 = L.circleMarker(
+                [37.372645, -121.853114],
+                {"bubblingMouseEvents": true, "color": "#fdc372", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#fdc372", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11.974400000000001, "stroke": true, "weight": 2}
+            ).addTo(map_85f61904956ef315f14874e9365d0a70);
+        
+    
+        var popup_c9a87cbdc79d4100dce3d682872cd371 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_4dfab121f5e789c9644b655990f2364b = $(`<div id="html_4dfab121f5e789c9644b655990f2364b" style="width: 100.0%; height: 100.0%;">     <div style='font-family: Arial; min-width: 180px;'>         <h4 style='margin:0;'>Donware</h4>         <b>Industry:</b> marketing<br>         <b>Priority:</b> 0.5256<br>         <b>Revenue:</b> $1,197M<br>         <b>Employees:</b> 2,570     </div>     </div>`)[0];
+                popup_c9a87cbdc79d4100dce3d682872cd371.setContent(html_4dfab121f5e789c9644b655990f2364b);
+            
+        
+
+        circle_marker_daef50c8df78031560070992ded5a945.bindPopup(popup_c9a87cbdc79d4100dce3d682872cd371)
+        ;
+
+        
+    
+    
+            circle_marker_daef50c8df78031560070992ded5a945.bindTooltip(
+                `<div>
+                     Donware (0.526)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_fa35d746d668d053ae2550220b6054b1 = L.circleMarker(
+                [36.131278, -115.112022],
+                {"bubblingMouseEvents": true, "color": "#fdbf6f", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#fdbf6f", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 2}
+            ).addTo(map_85f61904956ef315f14874e9365d0a70);
+        
+    
+        var popup_41ff9c0576df8fac132d387e29a63519 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_ab2256c73e2576a4412a29c408aab02c = $(`<div id="html_ab2256c73e2576a4412a29c408aab02c" style="width: 100.0%; height: 100.0%;">     <div style='font-family: Arial; min-width: 180px;'>         <h4 style='margin:0;'>Nam-zim</h4>         <b>Industry:</b> services<br>         <b>Priority:</b> 0.5240<br>         <b>Revenue:</b> $406M<br>         <b>Employees:</b> 1,179     </div>     </div>`)[0];
+                popup_41ff9c0576df8fac132d387e29a63519.setContent(html_ab2256c73e2576a4412a29c408aab02c);
+            
+        
+
+        circle_marker_fa35d746d668d053ae2550220b6054b1.bindPopup(popup_41ff9c0576df8fac132d387e29a63519)
+        ;
+
+        
+    
+    
+            circle_marker_fa35d746d668d053ae2550220b6054b1.bindTooltip(
+                `<div>
+                     Nam-zim (0.524)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_eed6132f8e8ae5d6517d36cc6526542a = L.circleMarker(
+                [37.300001, -121.934261],
+                {"bubblingMouseEvents": true, "color": "#fdb768", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#fdb768", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 16.1889, "stroke": true, "weight": 2}
+            ).addTo(map_85f61904956ef315f14874e9365d0a70);
+        
+    
+        var popup_282645ded11941adb60873e790089a92 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_9353a36184c8701296d749b9ee6be25d = $(`<div id="html_9353a36184c8701296d749b9ee6be25d" style="width: 100.0%; height: 100.0%;">     <div style='font-family: Arial; min-width: 180px;'>         <h4 style='margin:0;'>Lexiqvolax</h4>         <b>Industry:</b> medical<br>         <b>Priority:</b> 0.5199<br>         <b>Revenue:</b> $1,619M<br>         <b>Employees:</b> 3,889     </div>     </div>`)[0];
+                popup_282645ded11941adb60873e790089a92.setContent(html_9353a36184c8701296d749b9ee6be25d);
+            
+        
+
+        circle_marker_eed6132f8e8ae5d6517d36cc6526542a.bindPopup(popup_282645ded11941adb60873e790089a92)
+        ;
+
+        
+    
+    
+            circle_marker_eed6132f8e8ae5d6517d36cc6526542a.bindTooltip(
+                `<div>
+                     Lexiqvolax (0.520)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_02d28e2c7a77b445bd8ef05d390b2b26 = L.circleMarker(
+                [37.296453, -121.900033],
+                {"bubblingMouseEvents": true, "color": "#fdad60", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#fdad60", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 2}
+            ).addTo(map_85f61904956ef315f14874e9365d0a70);
+        
+    
+        var popup_d04377726641544a99c12f4bf4744494 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_791b8b8b04235c55f4e77bbbea803c82 = $(`<div id="html_791b8b8b04235c55f4e77bbbea803c82" style="width: 100.0%; height: 100.0%;">     <div style='font-family: Arial; min-width: 180px;'>         <h4 style='margin:0;'>Golddex</h4>         <b>Industry:</b> finance<br>         <b>Priority:</b> 0.5148<br>         <b>Revenue:</b> $52M<br>         <b>Employees:</b> 165     </div>     </div>`)[0];
+                popup_d04377726641544a99c12f4bf4744494.setContent(html_791b8b8b04235c55f4e77bbbea803c82);
+            
+        
+
+        circle_marker_02d28e2c7a77b445bd8ef05d390b2b26.bindPopup(popup_d04377726641544a99c12f4bf4744494)
+        ;
+
+        
+    
+    
+            circle_marker_02d28e2c7a77b445bd8ef05d390b2b26.bindTooltip(
+                `<div>
+                     Golddex (0.515)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_ffc38172dc0833efdaef56937ec36c77 = L.circleMarker(
+                [37.298189, -121.923027],
+                {"bubblingMouseEvents": true, "color": "#fdad60", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#fdad60", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6.461, "stroke": true, "weight": 2}
+            ).addTo(map_85f61904956ef315f14874e9365d0a70);
+        
+    
+        var popup_546f8b4ffa60da54fcf117497de808b9 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_d233d2e8b92171252cdc9f58582b2026 = $(`<div id="html_d233d2e8b92171252cdc9f58582b2026" style="width: 100.0%; height: 100.0%;">     <div style='font-family: Arial; min-width: 180px;'>         <h4 style='margin:0;'>Vehement Capital Partners</h4>         <b>Industry:</b> finance<br>         <b>Priority:</b> 0.5147<br>         <b>Revenue:</b> $646M<br>         <b>Employees:</b> 883     </div>     </div>`)[0];
+                popup_546f8b4ffa60da54fcf117497de808b9.setContent(html_d233d2e8b92171252cdc9f58582b2026);
+            
+        
+
+        circle_marker_ffc38172dc0833efdaef56937ec36c77.bindPopup(popup_546f8b4ffa60da54fcf117497de808b9)
+        ;
+
+        
+    
+    
+            circle_marker_ffc38172dc0833efdaef56937ec36c77.bindTooltip(
+                `<div>
+                     Vehement Capital Partners (0.515)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_9ae899a6a15a7e8436351a7988588b7e = L.circleMarker(
+                [37.293643, -121.935293],
+                {"bubblingMouseEvents": true, "color": "#f99355", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f99355", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6.921900000000001, "stroke": true, "weight": 2}
+            ).addTo(map_85f61904956ef315f14874e9365d0a70);
+        
+    
+        var popup_4e4a7bbbff14d2d9f600f878f0c763b8 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_4e2e31b60667c89d661f26f29f1d608a = $(`<div id="html_4e2e31b60667c89d661f26f29f1d608a" style="width: 100.0%; height: 100.0%;">     <div style='font-family: Arial; min-width: 180px;'>         <h4 style='margin:0;'>Green-Plus</h4>         <b>Industry:</b> services<br>         <b>Priority:</b> 0.5058<br>         <b>Revenue:</b> $692M<br>         <b>Employees:</b> 1,922     </div>     </div>`)[0];
+                popup_4e4a7bbbff14d2d9f600f878f0c763b8.setContent(html_4e2e31b60667c89d661f26f29f1d608a);
+            
+        
+
+        circle_marker_9ae899a6a15a7e8436351a7988588b7e.bindPopup(popup_4e4a7bbbff14d2d9f600f878f0c763b8)
+        ;
+
+        
+    
+    
+            circle_marker_9ae899a6a15a7e8436351a7988588b7e.bindTooltip(
+                `<div>
+                     Green-Plus (0.506)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_710e70a8dc412acdf8749421b23d3fba = L.circleMarker(
+                [37.325009, -121.89342],
+                {"bubblingMouseEvents": true, "color": "#f7844e", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f7844e", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11.000399999999999, "stroke": true, "weight": 2}
+            ).addTo(map_85f61904956ef315f14874e9365d0a70);
+        
+    
+        var popup_38a90409bb3c09633df89369ef822f4c = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_5593fadeca442116004a0cafd62b3f92 = $(`<div id="html_5593fadeca442116004a0cafd62b3f92" style="width: 100.0%; height: 100.0%;">     <div style='font-family: Arial; min-width: 180px;'>         <h4 style='margin:0;'>Acme Corporation</h4>         <b>Industry:</b> technolgy<br>         <b>Priority:</b> 0.5000<br>         <b>Revenue:</b> $1,100M<br>         <b>Employees:</b> 2,822     </div>     </div>`)[0];
+                popup_38a90409bb3c09633df89369ef822f4c.setContent(html_5593fadeca442116004a0cafd62b3f92);
+            
+        
+
+        circle_marker_710e70a8dc412acdf8749421b23d3fba.bindPopup(popup_38a90409bb3c09633df89369ef822f4c)
+        ;
+
+        
+    
+    
+            circle_marker_710e70a8dc412acdf8749421b23d3fba.bindTooltip(
+                `<div>
+                     Acme Corporation (0.500)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_ee039221a0d038a5accb3f90faf1717e = L.circleMarker(
+                [37.352848, -121.915129],
+                {"bubblingMouseEvents": true, "color": "#f7844e", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f7844e", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 2}
+            ).addTo(map_85f61904956ef315f14874e9365d0a70);
+        
+    
+        var popup_36f91157f65dfb9ade1df327e0fc8d3c = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_e178ea05cbedc7d04933ed45d5adfe75 = $(`<div id="html_e178ea05cbedc7d04933ed45d5adfe75" style="width: 100.0%; height: 100.0%;">     <div style='font-family: Arial; min-width: 180px;'>         <h4 style='margin:0;'>Opentech</h4>         <b>Industry:</b> finance<br>         <b>Priority:</b> 0.4997<br>         <b>Revenue:</b> $355M<br>         <b>Employees:</b> 853     </div>     </div>`)[0];
+                popup_36f91157f65dfb9ade1df327e0fc8d3c.setContent(html_e178ea05cbedc7d04933ed45d5adfe75);
+            
+        
+
+        circle_marker_ee039221a0d038a5accb3f90faf1717e.bindPopup(popup_36f91157f65dfb9ade1df327e0fc8d3c)
+        ;
+
+        
+    
+    
+            circle_marker_ee039221a0d038a5accb3f90faf1717e.bindTooltip(
+                `<div>
+                     Opentech (0.500)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_aef25293b74354ae138a521eba523f14 = L.circleMarker(
+                [37.370005, -121.869358],
+                {"bubblingMouseEvents": true, "color": "#f7814c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f7814c", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 2}
+            ).addTo(map_85f61904956ef315f14874e9365d0a70);
+        
+    
+        var popup_9f0d980074d12ad6b3ce8db2ee28761d = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_9934e09f2008194559718bee169f35ef = $(`<div id="html_9934e09f2008194559718bee169f35ef" style="width: 100.0%; height: 100.0%;">     <div style='font-family: Arial; min-width: 180px;'>         <h4 style='margin:0;'>Betasoloin</h4>         <b>Industry:</b> medical<br>         <b>Priority:</b> 0.4993<br>         <b>Revenue:</b> $251M<br>         <b>Employees:</b> 495     </div>     </div>`)[0];
+                popup_9f0d980074d12ad6b3ce8db2ee28761d.setContent(html_9934e09f2008194559718bee169f35ef);
+            
+        
+
+        circle_marker_aef25293b74354ae138a521eba523f14.bindPopup(popup_9f0d980074d12ad6b3ce8db2ee28761d)
+        ;
+
+        
+    
+    
+            circle_marker_aef25293b74354ae138a521eba523f14.bindTooltip(
+                `<div>
+                     Betasoloin (0.499)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_7279311ecf65a7e968a62a4402184d3c = L.circleMarker(
+                [37.30361, -121.881079],
+                {"bubblingMouseEvents": true, "color": "#f57547", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f57547", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7.924600000000001, "stroke": true, "weight": 2}
+            ).addTo(map_85f61904956ef315f14874e9365d0a70);
+        
+    
+        var popup_0bc36d0c985a4744049a628f70f08e6c = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_479bbeace35e64e4155204e2eec6d967 = $(`<div id="html_479bbeace35e64e4155204e2eec6d967" style="width: 100.0%; height: 100.0%;">     <div style='font-family: Arial; min-width: 180px;'>         <h4 style='margin:0;'>Hatfan</h4>         <b>Industry:</b> services<br>         <b>Priority:</b> 0.4940<br>         <b>Revenue:</b> $792M<br>         <b>Employees:</b> 1,299     </div>     </div>`)[0];
+                popup_0bc36d0c985a4744049a628f70f08e6c.setContent(html_479bbeace35e64e4155204e2eec6d967);
+            
+        
+
+        circle_marker_7279311ecf65a7e968a62a4402184d3c.bindPopup(popup_0bc36d0c985a4744049a628f70f08e6c)
+        ;
+
+        
+    
+    
+            circle_marker_7279311ecf65a7e968a62a4402184d3c.bindTooltip(
+                `<div>
+                     Hatfan (0.494)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_ee2b4400569cc995a7ea1a15a5174340 = L.circleMarker(
+                [37.369444, -121.918372],
+                {"bubblingMouseEvents": true, "color": "#f57547", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f57547", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 2}
+            ).addTo(map_85f61904956ef315f14874e9365d0a70);
+        
+    
+        var popup_13461b16a5f0941158eccff3eb8a77c4 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_ae4bc9a84d2c355b5ebca96e81624dc2 = $(`<div id="html_ae4bc9a84d2c355b5ebca96e81624dc2" style="width: 100.0%; height: 100.0%;">     <div style='font-family: Arial; min-width: 180px;'>         <h4 style='margin:0;'>Blackzim</h4>         <b>Industry:</b> retail<br>         <b>Priority:</b> 0.4937<br>         <b>Revenue:</b> $497M<br>         <b>Employees:</b> 1,588     </div>     </div>`)[0];
+                popup_13461b16a5f0941158eccff3eb8a77c4.setContent(html_ae4bc9a84d2c355b5ebca96e81624dc2);
+            
+        
+
+        circle_marker_ee2b4400569cc995a7ea1a15a5174340.bindPopup(popup_13461b16a5f0941158eccff3eb8a77c4)
+        ;
+
+        
+    
+    
+            circle_marker_ee2b4400569cc995a7ea1a15a5174340.bindTooltip(
+                `<div>
+                     Blackzim (0.494)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_5139278a5b0de36abafd052b0e49fdb2 = L.circleMarker(
+                [37.30145, -121.866216],
+                {"bubblingMouseEvents": true, "color": "#f36b42", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f36b42", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5.271100000000001, "stroke": true, "weight": 2}
+            ).addTo(map_85f61904956ef315f14874e9365d0a70);
+        
+    
+        var popup_ba40dfdf6ab0be95f2397bb7a33dd446 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_ac47c581b3f8b1df2b94560718bc04e7 = $(`<div id="html_ac47c581b3f8b1df2b94560718bc04e7" style="width: 100.0%; height: 100.0%;">     <div style='font-family: Arial; min-width: 180px;'>         <h4 style='margin:0;'>Iselectrics</h4>         <b>Industry:</b> technolgy<br>         <b>Priority:</b> 0.4900<br>         <b>Revenue:</b> $527M<br>         <b>Employees:</b> 1,428     </div>     </div>`)[0];
+                popup_ba40dfdf6ab0be95f2397bb7a33dd446.setContent(html_ac47c581b3f8b1df2b94560718bc04e7);
+            
+        
+
+        circle_marker_5139278a5b0de36abafd052b0e49fdb2.bindPopup(popup_ba40dfdf6ab0be95f2397bb7a33dd446)
+        ;
+
+        
+    
+    
+            circle_marker_5139278a5b0de36abafd052b0e49fdb2.bindTooltip(
+                `<div>
+                     Iselectrics (0.490)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_128ee99bc7b64c1730f6057365add1dd = L.circleMarker(
+                [37.351086, -121.887697],
+                {"bubblingMouseEvents": true, "color": "#f26841", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f26841", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 20, "stroke": true, "weight": 2}
+            ).addTo(map_85f61904956ef315f14874e9365d0a70);
+        
+    
+        var popup_a3ed16485e1abab52c697c7d88767456 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_2aa58386e07fd5259355e6d39d0651d2 = $(`<div id="html_2aa58386e07fd5259355e6d39d0651d2" style="width: 100.0%; height: 100.0%;">     <div style='font-family: Arial; min-width: 180px;'>         <h4 style='margin:0;'>Xx-zobam</h4>         <b>Industry:</b> entertainment<br>         <b>Priority:</b> 0.4896<br>         <b>Revenue:</b> $3,838M<br>         <b>Employees:</b> 8,274     </div>     </div>`)[0];
+                popup_a3ed16485e1abab52c697c7d88767456.setContent(html_2aa58386e07fd5259355e6d39d0651d2);
+            
+        
+
+        circle_marker_128ee99bc7b64c1730f6057365add1dd.bindPopup(popup_a3ed16485e1abab52c697c7d88767456)
+        ;
+
+        
+    
+    
+            circle_marker_128ee99bc7b64c1730f6057365add1dd.bindTooltip(
+                `<div>
+                     Xx-zobam (0.490)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_478d937771d33827a367c9b533f30f68 = L.circleMarker(
+                [37.288856, -121.858261],
+                {"bubblingMouseEvents": true, "color": "#ee613e", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ee613e", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 20, "stroke": true, "weight": 2}
+            ).addTo(map_85f61904956ef315f14874e9365d0a70);
+        
+    
+        var popup_e3e9c4db41dd90dc32da460d3df36675 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_185006894d00e171d6d2549112bd80b9 = $(`<div id="html_185006894d00e171d6d2549112bd80b9" style="width: 100.0%; height: 100.0%;">     <div style='font-family: Arial; min-width: 180px;'>         <h4 style='margin:0;'>Silis</h4>         <b>Industry:</b> medical<br>         <b>Priority:</b> 0.4864<br>         <b>Revenue:</b> $2,818M<br>         <b>Employees:</b> 6,290     </div>     </div>`)[0];
+                popup_e3e9c4db41dd90dc32da460d3df36675.setContent(html_185006894d00e171d6d2549112bd80b9);
+            
+        
+
+        circle_marker_478d937771d33827a367c9b533f30f68.bindPopup(popup_e3e9c4db41dd90dc32da460d3df36675)
+        ;
+
+        
+    
+    
+            circle_marker_478d937771d33827a367c9b533f30f68.bindTooltip(
+                `<div>
+                     Silis (0.486)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_8794bb972b0c13189212c35cd369739b = L.circleMarker(
+                [37.310374, -121.858651],
+                {"bubblingMouseEvents": true, "color": "#e44c34", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e44c34", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 2}
+            ).addTo(map_85f61904956ef315f14874e9365d0a70);
+        
+    
+        var popup_fc466885715b023ec68cd00e488f0774 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_7356a42cc08712041b6c7c4a739b0c7e = $(`<div id="html_7356a42cc08712041b6c7c4a739b0c7e" style="width: 100.0%; height: 100.0%;">     <div style='font-family: Arial; min-width: 180px;'>         <h4 style='margin:0;'>Statholdings</h4>         <b>Industry:</b> employment<br>         <b>Priority:</b> 0.4784<br>         <b>Revenue:</b> $291M<br>         <b>Employees:</b> 586     </div>     </div>`)[0];
+                popup_fc466885715b023ec68cd00e488f0774.setContent(html_7356a42cc08712041b6c7c4a739b0c7e);
+            
+        
+
+        circle_marker_8794bb972b0c13189212c35cd369739b.bindPopup(popup_fc466885715b023ec68cd00e488f0774)
+        ;
+
+        
+    
+    
+            circle_marker_8794bb972b0c13189212c35cd369739b.bindTooltip(
+                `<div>
+                     Statholdings (0.478)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_4a5e500d03487f31acc9c63ccbff2949 = L.circleMarker(
+                [37.373508, -121.874269],
+                {"bubblingMouseEvents": true, "color": "#e14430", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e14430", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 12.4232, "stroke": true, "weight": 2}
+            ).addTo(map_85f61904956ef315f14874e9365d0a70);
+        
+    
+        var popup_7105377afdbc3c60ff27ed1bdd734cc1 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_63d5680c3f04ca0f917f0a96d9e34109 = $(`<div id="html_63d5680c3f04ca0f917f0a96d9e34109" style="width: 100.0%; height: 100.0%;">     <div style='font-family: Arial; min-width: 180px;'>         <h4 style='margin:0;'>Bluth Company</h4>         <b>Industry:</b> technolgy<br>         <b>Priority:</b> 0.4749<br>         <b>Revenue:</b> $1,242M<br>         <b>Employees:</b> 3,027     </div>     </div>`)[0];
+                popup_7105377afdbc3c60ff27ed1bdd734cc1.setContent(html_63d5680c3f04ca0f917f0a96d9e34109);
+            
+        
+
+        circle_marker_4a5e500d03487f31acc9c63ccbff2949.bindPopup(popup_7105377afdbc3c60ff27ed1bdd734cc1)
+        ;
+
+        
+    
+    
+            circle_marker_4a5e500d03487f31acc9c63ccbff2949.bindTooltip(
+                `<div>
+                     Bluth Company (0.475)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_d16f0618ab5d4ec0b59e9d052602229e = L.circleMarker(
+                [37.379945, -121.934873],
+                {"bubblingMouseEvents": true, "color": "#a50026", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#a50026", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 2}
+            ).addTo(map_85f61904956ef315f14874e9365d0a70);
+        
+    
+        var popup_9d006fb22a4ff488cabfeaff8a070e9f = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_bed0629b47a8ff49893277c2806e8473 = $(`<div id="html_bed0629b47a8ff49893277c2806e8473" style="width: 100.0%; height: 100.0%;">     <div style='font-family: Arial; min-width: 180px;'>         <h4 style='margin:0;'>Sumace</h4>         <b>Industry:</b> retail<br>         <b>Priority:</b> 0.4422<br>         <b>Revenue:</b> $168M<br>         <b>Employees:</b> 493     </div>     </div>`)[0];
+                popup_9d006fb22a4ff488cabfeaff8a070e9f.setContent(html_bed0629b47a8ff49893277c2806e8473);
+            
+        
+
+        circle_marker_d16f0618ab5d4ec0b59e9d052602229e.bindPopup(popup_9d006fb22a4ff488cabfeaff8a070e9f)
+        ;
+
+        
+    
+    
+            circle_marker_d16f0618ab5d4ec0b59e9d052602229e.bindTooltip(
+                `<div>
+                     Sumace (0.442)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+</script>
+</html>
