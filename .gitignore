@@ -7,5 +7,6 @@ build/
 # *.joblib  # keeping model artifacts in repo (small enough)
 .ipynb_checkpoints/
 pgdata/
+anaconda_projects/
 .DS_Store
 notebooks/dl_pipeline_executed.ipynb
