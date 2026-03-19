@@ -3,8 +3,12 @@
 import logging
 from contextlib import asynccontextmanager
 
+from pathlib import Path
+
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import FileResponse
+from fastapi.staticfiles import StaticFiles
 
 from app.api.routes import router
 from app.data.data_loader import init_schema
@@ -39,3 +43,12 @@ app.add_middleware(
 )
 
 app.include_router(router)
+
+# Serve frontend static files
+_static_dir = Path(__file__).resolve().parent.parent / "static"
+if _static_dir.is_dir():
+    app.mount("/static", StaticFiles(directory=str(_static_dir)), name="static")
+
+    @app.get("/")
+    def serve_frontend():
+        return FileResponse(str(_static_dir / "index.html"))

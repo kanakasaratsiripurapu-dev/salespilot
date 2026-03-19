@@ -45,3 +45,30 @@ class MetaResponse(BaseModel):
     service: str
     version: str
     model_version: str
+
+
+class AccountCreate(BaseModel):
+    account_name: str
+    industry: str = ""
+    company_size: int = 0
+    revenue: float = 0.0
+    region: str = ""
+    latitude: float | None = None
+    longitude: float | None = None
+    deal_value: float = 0.0
+    sales_stage: str = "Prospecting"
+
+
+class AccountResponse(BaseModel):
+    account_id: int
+    account_name: str
+    industry: str | None = None
+    company_size: int | None = None
+    revenue: float | None = None
+    region: str | None = None
+    latitude: float | None = None
+    longitude: float | None = None
+
+
+class AccountListResponse(BaseModel):
+    accounts: list[AccountResponse]
