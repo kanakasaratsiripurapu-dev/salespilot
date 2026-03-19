@@ -244,11 +244,16 @@ def _upsert_sales_teams(conn, df: pd.DataFrame) -> None:
 def _upsert_opportunities(conn, df: pd.DataFrame) -> None:
     conn.execute(text("CREATE TEMP TABLE _tmp_opps (LIKE opportunities INCLUDING DEFAULTS) ON COMMIT DROP"))
     rows = df.where(df.notna(), None).to_dict("records")
-    # Convert dates to strings for parameterised insert
+    # Convert dates to strings for parameterised insert; NaT → None
     for r in rows:
         for col in ("engage_date", "close_date"):
-            if r[col] is not None and hasattr(r[col], "isoformat"):
-                r[col] = r[col].isoformat()
+            val = r[col]
+            if val is None or (hasattr(val, "isoformat") and pd.isna(val)):
+                r[col] = None
+            elif hasattr(val, "isoformat"):
+                r[col] = val.isoformat()
+            elif isinstance(val, str) and val == "NaT":
+                r[col] = None
     conn.execute(
         text("""
             INSERT INTO _tmp_opps

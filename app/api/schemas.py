@@ -39,3 +39,9 @@ class RouteResponse(BaseModel):
 
 class HealthResponse(BaseModel):
     status: str
+
+
+class MetaResponse(BaseModel):
+    service: str
+    version: str
+    model_version: str

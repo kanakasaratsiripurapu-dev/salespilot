@@ -6,6 +6,7 @@ from sqlalchemy.orm import Session
 
 from app.api.schemas import (
     HealthResponse,
+    MetaResponse,
     RouteRequest,
     RouteResponse,
     RouteStop,
@@ -25,6 +26,15 @@ router = APIRouter()
 @router.get("/health", response_model=HealthResponse)
 def health():
     return HealthResponse(status="ok")
+
+
+@router.get("/meta", response_model=MetaResponse)
+def meta():
+    return MetaResponse(
+        service="salespilot",
+        version="0.1.0",
+        model_version=settings.MODEL_VERSION,
+    )
 
 
 @router.post("/v1/load-data")

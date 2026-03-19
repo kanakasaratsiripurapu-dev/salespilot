@@ -1,14 +1,45 @@
-"""OR-Tools TSP solver for route optimization."""
+"""OR-Tools TSP solver for route optimization.
 
+Falls back to a nearest-neighbour heuristic when OR-Tools cannot be
+imported (e.g. protobuf/pyarrow binary conflict on Python 3.13).
+"""
+
+import logging
 from dataclasses import dataclass
 
 from app.optimization.distance_provider import DistanceProvider
+
+logger = logging.getLogger(__name__)
 
 
 @dataclass
 class RouteResult:
     ordered_indices: list[int]
     total_distance_km: float
+
+
+def _nearest_neighbour(dist_matrix, n: int) -> tuple[list[int], float]:
+    """Simple nearest-neighbour TSP heuristic starting from node 0."""
+    visited = {0}
+    order = [0]
+    total = 0.0
+    current = 0
+    for _ in range(n - 1):
+        best_dist = float("inf")
+        best_node = -1
+        for j in range(n):
+            if j not in visited and dist_matrix[current][j] < best_dist:
+                best_dist = dist_matrix[current][j]
+                best_node = j
+        if best_node == -1:
+            break
+        visited.add(best_node)
+        order.append(best_node)
+        total += best_dist
+        current = best_node
+    # Return to depot
+    total += dist_matrix[current][0]
+    return order, round(total, 1)
 
 
 def solve_tsp(points: list[tuple[float, float]], distance_provider: DistanceProvider) -> RouteResult:
@@ -27,50 +58,81 @@ def solve_tsp(points: list[tuple[float, float]], distance_provider: DistanceProv
         round_trip = dist_matrix[0][1] + dist_matrix[1][0]
         return RouteResult(ordered_indices=[0, 1], total_distance_km=round_trip)
 
-    # Build integer distance matrix (km * 1000 for precision)
+    # Build distance matrix
     dist_matrix_km = distance_provider.matrix(points)
-    scale = 1000
-    int_matrix = (dist_matrix_km * scale).astype(int).tolist()
 
-    # OR-Tools setup (lazy import to avoid protobuf descriptor conflict with pandas/pyarrow)
-    from ortools.constraint_solver import pywrapcp, routing_enums_pb2
+    # Try OR-Tools in a subprocess (segfaults on Python 3.13 due to protobuf/pyarrow conflict)
+    result = _try_ortools_subprocess(dist_matrix_km, n)
+    if result is not None:
+        return result
 
-    manager = pywrapcp.RoutingIndexManager(n, 1, 0)  # 1 vehicle, depot=0
-    routing = pywrapcp.RoutingModel(manager)
+    # Fallback: nearest-neighbour heuristic
+    logger.info("Using nearest-neighbour heuristic for TSP")
+    order, total = _nearest_neighbour(dist_matrix_km, n)
+    return RouteResult(ordered_indices=order, total_distance_km=total)
 
-    def distance_callback(from_index, to_index):
-        from_node = manager.IndexToNode(from_index)
-        to_node = manager.IndexToNode(to_index)
-        return int_matrix[from_node][to_node]
 
-    transit_callback_index = routing.RegisterTransitCallback(distance_callback)
-    routing.SetArcCostEvaluatorOfAllVehicles(transit_callback_index)
+def _try_ortools_subprocess(dist_matrix_km, n: int) -> RouteResult | None:
+    """Run OR-Tools TSP solver in an isolated subprocess to avoid segfault."""
+    import json
+    import subprocess
+    import sys
 
-    # Search parameters
-    search_params = pywrapcp.DefaultRoutingSearchParameters()
-    search_params.first_solution_strategy = routing_enums_pb2.FirstSolutionStrategy.PATH_CHEAPEST_ARC
-    search_params.local_search_metaheuristic = routing_enums_pb2.LocalSearchMetaheuristic.GUIDED_LOCAL_SEARCH
-    search_params.time_limit.seconds = 5
+    # Serialise the distance matrix as nested list
+    matrix_list = dist_matrix_km.tolist()
 
-    solution = routing.SolveWithParameters(search_params)
+    script = '''
+import json, sys
+from ortools.constraint_solver import pywrapcp, routing_enums_pb2
 
-    if solution is None:
-        # Fallback: return points in original order
-        total = sum(dist_matrix_km[i][(i + 1) % n] for i in range(n))
-        return RouteResult(ordered_indices=list(range(n)), total_distance_km=total)
+data = json.loads(sys.stdin.read())
+matrix = data["matrix"]
+n = data["n"]
+scale = 1000
+int_matrix = [[int(matrix[i][j] * scale) for j in range(n)] for i in range(n)]
 
-    # Extract route
-    ordered_indices = []
-    index = routing.Start(0)
-    total_distance_scaled = 0
+manager = pywrapcp.RoutingIndexManager(n, 1, 0)
+routing = pywrapcp.RoutingModel(manager)
 
-    while not routing.IsEnd(index):
-        node = manager.IndexToNode(index)
-        ordered_indices.append(node)
-        next_index = solution.Value(routing.NextVar(index))
-        total_distance_scaled += routing.GetArcCostForVehicle(index, next_index, 0)
-        index = next_index
+def distance_callback(from_index, to_index):
+    return int_matrix[manager.IndexToNode(from_index)][manager.IndexToNode(to_index)]
 
-    total_distance_km = total_distance_scaled / scale
+transit_cb = routing.RegisterTransitCallback(distance_callback)
+routing.SetArcCostEvaluatorOfAllVehicles(transit_cb)
 
-    return RouteResult(ordered_indices=ordered_indices, total_distance_km=round(total_distance_km, 1))
+params = pywrapcp.DefaultRoutingSearchParameters()
+params.first_solution_strategy = routing_enums_pb2.FirstSolutionStrategy.PATH_CHEAPEST_ARC
+params.local_search_metaheuristic = routing_enums_pb2.LocalSearchMetaheuristic.GUIDED_LOCAL_SEARCH
+params.time_limit.seconds = 5
+
+solution = routing.SolveWithParameters(params)
+if solution is None:
+    print(json.dumps(None))
+else:
+    order = []
+    idx = routing.Start(0)
+    total = 0
+    while not routing.IsEnd(idx):
+        order.append(manager.IndexToNode(idx))
+        nxt = solution.Value(routing.NextVar(idx))
+        total += routing.GetArcCostForVehicle(idx, nxt, 0)
+        idx = nxt
+    print(json.dumps({"order": order, "total_km": round(total / scale, 1)}))
+'''
+
+    try:
+        proc = subprocess.run(
+            [sys.executable, "-c", script],
+            input=json.dumps({"matrix": matrix_list, "n": n}),
+            capture_output=True, text=True, timeout=15,
+        )
+        if proc.returncode != 0:
+            logger.warning("OR-Tools subprocess failed (rc=%d): %s", proc.returncode, proc.stderr[:200])
+            return None
+        result = json.loads(proc.stdout.strip())
+        if result is None:
+            return None
+        return RouteResult(ordered_indices=result["order"], total_distance_km=result["total_km"])
+    except Exception as e:
+        logger.warning("OR-Tools subprocess error: %s", e)
+        return None
