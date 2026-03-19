@@ -23,10 +23,10 @@ services:
     ports:
       - "8000:8000"
     environment:
-      DATABASE_URL: postgresql://salespilot:salespilot@db:5432/salespilot
-      MODEL_PATH: /app/ml/artifacts/model.joblib
+      DATABASE_URL: postgresql+psycopg2://salespilot:salespilot@db:5432/salespilot
+      MODEL_PATH: /app/app/ml/artifacts/model.joblib
     volumes:
-      - ./app/ml/artifacts:/app/ml/artifacts
+      - ./app/ml/artifacts:/app/app/ml/artifacts
       - ./data:/data
     depends_on:
       db:

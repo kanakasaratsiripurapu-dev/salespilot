@@ -92,10 +92,13 @@ def optimize_route(request: RouteRequest, db: Session = Depends(get_db)):
     coord_map = {row.account_id: (row.latitude, row.longitude) for row in coord_rows}
 
     # 5. Build points list: [depot] + [selected account coords]
+    #    Exclude start_account_id from visit list to avoid duplicate stops
     points = [(depot_lat, depot_lon)]
     ordered_account_ids = [request.start_account_id]
     for s in selected:
         aid = s["account_id"]
+        if aid == request.start_account_id:
+            continue  # depot is already point 0
         if aid in coord_map:
             points.append(coord_map[aid])
             ordered_account_ids.append(aid)
