@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SalesPilot — Sales Route Planner</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <link rel="stylesheet" href="/static/css/style.css" />
+</head>
+<body>
+
+<!-- Sidebar -->
+<aside id="sidebar">
+  <header class="sidebar-header">
+    <h1>SalesPilot</h1>
+    <p class="subtitle">Sales Route Planner</p>
+  </header>
+
+  <!-- Tab navigation -->
+  <nav class="tabs">
+    <button class="tab active" data-tab="accounts">Accounts</button>
+    <button class="tab" data-tab="add">Add Account</button>
+    <button class="tab" data-tab="route">Route</button>
+  </nav>
+
+  <!-- Accounts Panel -->
+  <section id="panel-accounts" class="panel active">
+    <div class="panel-toolbar">
+      <input type="text" id="search-input" placeholder="Search accounts..." />
+      <button id="btn-refresh" title="Refresh accounts">&#x21bb;</button>
+    </div>
+    <div class="select-controls">
+      <button id="btn-select-all">Select All</button>
+      <button id="btn-deselect-all">Deselect All</button>
+    </div>
+    <ul id="account-list" class="account-list"></ul>
+  </section>
+
+  <!-- Add Account Panel -->
+  <section id="panel-add" class="panel">
+    <form id="add-account-form">
+      <label>Account Name *
+        <input type="text" name="account_name" required />
+      </label>
+      <label>Industry
+        <input type="text" name="industry" placeholder="e.g. Technology" />
+      </label>
+      <label>Company Size
+        <input type="number" name="company_size" min="0" value="0" />
+      </label>
+      <label>Revenue ($)
+        <input type="number" name="revenue" min="0" step="0.01" value="0" />
+      </label>
+      <label>Region
+        <input type="text" name="region" placeholder="e.g. West" />
+      </label>
+      <label>Deal Value ($)
+        <input type="number" name="deal_value" min="0" step="0.01" value="0" />
+      </label>
+      <label>Sales Stage
+        <select name="sales_stage">
+          <option>Prospecting</option>
+          <option>Qualification</option>
+          <option>Needs Analysis</option>
+          <option>Proposal</option>
+          <option>Negotiation</option>
+          <option>Closed Won</option>
+          <option>Closed Lost</option>
+        </select>
+      </label>
+      <div class="coord-row">
+        <label>Latitude
+          <input type="number" name="latitude" step="any" placeholder="Auto" />
+        </label>
+        <label>Longitude
+          <input type="number" name="longitude" step="any" placeholder="Auto" />
+        </label>
+      </div>
+      <button type="button" id="btn-pick-map" class="btn-secondary">Pick on Map</button>
+      <button type="submit" class="btn-primary">Add Account</button>
+    </form>
+  </section>
+
+  <!-- Route Panel -->
+  <section id="panel-route" class="panel">
+    <div class="route-config">
+      <label>Start Account
+        <select id="start-account"></select>
+      </label>
+      <label>Top N Accounts
+        <input type="number" id="top-n" min="1" max="50" value="5" />
+      </label>
+      <button id="btn-optimize" class="btn-primary">Optimize Route</button>
+    </div>
+    <div id="route-result" class="route-result hidden">
+      <h3>Route Plan</h3>
+      <p id="route-distance"></p>
+      <ol id="route-stops"></ol>
+    </div>
+    <div id="route-loading" class="hidden">
+      <div class="spinner"></div>
+      <p>Optimizing route...</p>
+    </div>
+  </section>
+</aside>
+
+<!-- Map -->
+<main id="map"></main>
+
+<!-- Toast -->
+<div id="toast" class="toast hidden"></div>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="/static/js/api.js"></script>
+<script src="/static/js/map.js"></script>
+<script src="/static/js/ui.js"></script>
+<script src="/static/js/app.js"></script>
+</body>
+</html>

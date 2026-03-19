@@ -1,0 +1,282 @@
+/* ========= Reset & Base ========= */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { height: 100%; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; }
+body { display: flex; overflow: hidden; background: #f0f2f5; }
+
+/* ========= Sidebar ========= */
+#sidebar {
+  width: 360px;
+  min-width: 360px;
+  height: 100vh;
+  background: #1a1d23;
+  color: #e0e0e0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  z-index: 1000;
+}
+.sidebar-header {
+  padding: 20px 16px 12px;
+  border-bottom: 1px solid #2d3039;
+}
+.sidebar-header h1 {
+  font-size: 1.4rem;
+  color: #4fc3f7;
+  letter-spacing: 1px;
+}
+.subtitle { font-size: 0.8rem; color: #888; margin-top: 2px; }
+
+/* Tabs */
+.tabs {
+  display: flex;
+  border-bottom: 1px solid #2d3039;
+}
+.tab {
+  flex: 1;
+  padding: 10px 0;
+  background: none;
+  border: none;
+  color: #888;
+  font-size: 0.85rem;
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  transition: all 0.2s;
+}
+.tab:hover { color: #ccc; }
+.tab.active { color: #4fc3f7; border-bottom-color: #4fc3f7; }
+
+/* Panels */
+.panel { display: none; flex: 1; overflow-y: auto; padding: 12px 16px; }
+.panel.active { display: flex; flex-direction: column; }
+
+/* ========= Accounts Panel ========= */
+.panel-toolbar {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+.panel-toolbar input {
+  flex: 1;
+  padding: 8px 10px;
+  border: 1px solid #3a3f4b;
+  border-radius: 6px;
+  background: #24272e;
+  color: #e0e0e0;
+  font-size: 0.85rem;
+}
+.panel-toolbar button {
+  padding: 6px 10px;
+  background: #2d3039;
+  border: 1px solid #3a3f4b;
+  border-radius: 6px;
+  color: #4fc3f7;
+  cursor: pointer;
+  font-size: 1rem;
+}
+.select-controls {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+.select-controls button {
+  flex: 1;
+  padding: 5px;
+  font-size: 0.75rem;
+  border: 1px solid #3a3f4b;
+  border-radius: 4px;
+  background: #24272e;
+  color: #aaa;
+  cursor: pointer;
+}
+.select-controls button:hover { color: #4fc3f7; }
+
+/* Account list items */
+.account-list { list-style: none; }
+.account-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 8px;
+  border-bottom: 1px solid #2d3039;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: background 0.15s;
+}
+.account-item:hover { background: #24272e; }
+.account-item input[type="checkbox"] { accent-color: #4fc3f7; }
+.account-info { flex: 1; min-width: 0; }
+.account-name { font-size: 0.88rem; font-weight: 500; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.account-meta { font-size: 0.72rem; color: #888; margin-top: 2px; }
+.set-start-btn {
+  background: none;
+  border: 1px solid #3a3f4b;
+  color: #888;
+  border-radius: 4px;
+  padding: 2px 6px;
+  cursor: pointer;
+  font-size: 0.65rem;
+  transition: all 0.15s;
+}
+.set-start-btn:hover { color: #4caf50; border-color: #4caf50; }
+.account-item .start-badge {
+  font-size: 0.65rem;
+  padding: 2px 6px;
+  border-radius: 10px;
+  background: #4fc3f7;
+  color: #1a1d23;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+/* ========= Add Account Panel ========= */
+#add-account-form label {
+  display: block;
+  font-size: 0.78rem;
+  color: #aaa;
+  margin-bottom: 10px;
+}
+#add-account-form input,
+#add-account-form select {
+  display: block;
+  width: 100%;
+  margin-top: 4px;
+  padding: 8px 10px;
+  border: 1px solid #3a3f4b;
+  border-radius: 6px;
+  background: #24272e;
+  color: #e0e0e0;
+  font-size: 0.85rem;
+}
+.coord-row { display: flex; gap: 10px; }
+.coord-row label { flex: 1; }
+
+/* ========= Buttons ========= */
+.btn-primary {
+  width: 100%;
+  padding: 10px;
+  margin-top: 12px;
+  border: none;
+  border-radius: 8px;
+  background: #4fc3f7;
+  color: #1a1d23;
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.btn-primary:hover { background: #39a8d8; }
+.btn-primary:disabled { opacity: 0.5; cursor: not-allowed; }
+.btn-secondary {
+  width: 100%;
+  padding: 8px;
+  margin-top: 6px;
+  border: 1px dashed #4fc3f7;
+  border-radius: 8px;
+  background: transparent;
+  color: #4fc3f7;
+  font-size: 0.82rem;
+  cursor: pointer;
+}
+.btn-secondary:hover { background: rgba(79,195,247,0.08); }
+.btn-secondary.picking {
+  background: rgba(79,195,247,0.15);
+  border-style: solid;
+  animation: pulse 1.2s infinite;
+}
+@keyframes pulse { 50% { opacity: 0.6; } }
+
+/* ========= Route Panel ========= */
+.route-config label {
+  display: block;
+  font-size: 0.78rem;
+  color: #aaa;
+  margin-bottom: 10px;
+}
+.route-config select,
+.route-config input {
+  display: block;
+  width: 100%;
+  margin-top: 4px;
+  padding: 8px 10px;
+  border: 1px solid #3a3f4b;
+  border-radius: 6px;
+  background: #24272e;
+  color: #e0e0e0;
+  font-size: 0.85rem;
+}
+.route-result h3 { font-size: 0.95rem; color: #4fc3f7; margin: 14px 0 6px; }
+#route-distance { font-size: 0.85rem; color: #ccc; margin-bottom: 8px; }
+#route-stops { padding-left: 18px; }
+#route-stops li {
+  font-size: 0.82rem;
+  padding: 4px 0;
+  color: #ddd;
+}
+#route-stops .stop-start { color: #4caf50; font-weight: 600; }
+#route-stops .stop-end { color: #f44336; font-weight: 600; }
+
+.spinner {
+  width: 28px; height: 28px;
+  border: 3px solid #3a3f4b;
+  border-top-color: #4fc3f7;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+  margin: 20px auto 8px;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+#route-loading p { text-align: center; font-size: 0.82rem; color: #888; }
+
+/* ========= Map ========= */
+#map { flex: 1; height: 100vh; }
+
+/* Leaflet numbered markers */
+.numbered-marker {
+  background: #4fc3f7;
+  color: #1a1d23;
+  border-radius: 50%;
+  width: 28px; height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 13px;
+  border: 2px solid #fff;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+}
+.numbered-marker.start { background: #4caf50; color: #fff; }
+.numbered-marker.end { background: #f44336; color: #fff; }
+
+/* Default account marker */
+.account-marker {
+  background: #ff9800;
+  color: #fff;
+  border-radius: 50%;
+  width: 12px; height: 12px;
+  border: 2px solid #fff;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.3);
+}
+.account-marker.selected {
+  background: #4fc3f7;
+  width: 14px; height: 14px;
+}
+
+/* ========= Toast ========= */
+.toast {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 10px 24px;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  color: #fff;
+  z-index: 9999;
+  transition: opacity 0.3s;
+}
+.toast.hidden { opacity: 0; pointer-events: none; }
+.toast.success { background: #4caf50; }
+.toast.error { background: #f44336; }
+.toast.info { background: #2196f3; }
+
+/* Hidden utility */
+.hidden { display: none !important; }
