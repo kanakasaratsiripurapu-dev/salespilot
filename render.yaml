@@ -1,0 +1,23 @@
+databases:
+  - name: salespilot-db
+    plan: free
+    databaseName: salespilot
+    user: salespilot
+
+services:
+  - type: web
+    name: salespilot
+    plan: free
+    runtime: docker
+    dockerfilePath: ./Dockerfile
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: salespilot-db
+          property: connectionString
+      - key: MODEL_PATH
+        value: app/ml/artifacts/model.joblib
+      - key: MODEL_VERSION
+        value: xgb_v1
+      - key: DISTANCE_MODE
+        value: haversine
