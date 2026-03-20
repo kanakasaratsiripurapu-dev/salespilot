@@ -11,8 +11,10 @@ from fastapi.responses import FileResponse
 from fastapi.staticfiles import StaticFiles
 
 from app.api.routes import router
-from app.data.data_loader import init_schema
+from app.data.data_loader import init_schema, load_csv
+from app.db.session import SessionLocal
 from app.ml.predictor import warm_up
+from sqlalchemy import text
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
@@ -24,6 +26,18 @@ async def lifespan(app: FastAPI):
     logger.info("Starting SalesPilot API...")
     try:
         init_schema()
+        # Auto-load CSV data if accounts table is empty (first deploy)
+        db = SessionLocal()
+        try:
+            count = db.execute(text("SELECT COUNT(*) FROM accounts")).scalar()
+            if count == 0:
+                logger.info("Empty database detected — loading CSV seed data...")
+                load_csv("data/raw")
+                logger.info("Seed data loaded successfully.")
+        except Exception as e:
+            logger.warning(f"Could not auto-load data: {e}")
+        finally:
+            db.close()
     except Exception:
         logger.warning("Could not initialise schema — DB may be unavailable")
     warm_up()
