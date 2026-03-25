@@ -8,8 +8,9 @@ services:
   - type: web
     name: salespilot
     plan: free
-    runtime: docker
-    dockerfilePath: ./Dockerfile
+    runtime: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: bash start.sh
     envVars:
       - key: DATABASE_URL
         fromDatabase:
@@ -21,3 +22,5 @@ services:
         value: xgb_v1
       - key: DISTANCE_MODE
         value: haversine
+      - key: PYTHON_VERSION
+        value: "3.11.11"
