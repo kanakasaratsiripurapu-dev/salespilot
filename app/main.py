@@ -12,7 +12,6 @@ from fastapi.staticfiles import StaticFiles
 
 from app.api.routes import router
 from app.data.data_loader import init_schema
-from app.ml.predictor import warm_up
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
@@ -27,9 +26,7 @@ async def lifespan(app: FastAPI):
     except Exception:
         logger.warning("Could not initialise schema — DB may be unavailable")
 
-    # Warm up predictor (non-fatal)
-    warm_up()
-
+    # Model warmup deferred to first request (saves RAM on free tier)
     logger.info("Application startup complete.")
     yield
     # Shutdown
