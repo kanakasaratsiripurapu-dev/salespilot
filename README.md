@@ -18,7 +18,7 @@ The system predicts which client accounts are most likely to close deals, ranks 
 Field sales reps manage multiple client accounts across different cities. With limited time and travel budgets, they cannot visit every account. Standard navigation tools find the shortest path, but don't help determine **which accounts are most valuable to visit**.
 
 SalesPilot solves this by:
-1. **Predicting** high-value accounts using machine learning
+1. **Predicting** high-value accounts using Deep learning
 2. **Prioritising** them by deal closure probability
 3. **Generating** an efficient round-trip visit route
 
@@ -33,7 +33,7 @@ SalesPilot solves this by:
 
 ## Approach
 
-### Machine Learning Pipeline
+### Deep Learning Pipeline
 - **Model:** XGBoost binary classifier wrapped in a scikit-learn Pipeline
 - **Preprocessing:** OneHotEncoder for categoricals, log1p transform for deal_value, passthrough for numerics
 - **Training split:** 70/15/15 stratified (train/validation/test)
