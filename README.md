@@ -1,124 +1,189 @@
-# SalesPilot
+# SalesPilot: Intelligent Backend System for Sales Route and Deal Prioritisation
 
-Field sales route optimization backend powered by XGBoost + OR-Tools.
+**Course:** CMPE 258 — Deep Learning (Spring 2026), San Jose State University  
+**Team Member:** Kanaka Sarat Siripurapu (SJSU ID: 019132776)  
+**Email:** kanakasarat.siripurapu@sjsu.edu  
+**Live Demo:** [https://salespilot-44lq.onrender.com](https://salespilot-44lq.onrender.com)
 
-## Quick Start
+---
 
-### 1. Start services
+## Project Overview
 
-```bash
-docker compose up --build
+SalesPilot is a backend-driven system that helps field sales representatives plan client visits more effectively. It combines **machine learning-based deal prioritisation** with **route optimisation** to create efficient round-trip travel plans.
+
+The system predicts which client accounts are most likely to close deals, ranks them by priority score, and generates an optimised visit route — minimising travel distance while maximising business value.
+
+## Problem Statement
+
+Field sales reps manage multiple client accounts across different cities. With limited time and travel budgets, they cannot visit every account. Standard navigation tools find the shortest path, but don't help determine **which accounts are most valuable to visit**.
+
+SalesPilot solves this by:
+1. **Predicting** high-value accounts using machine learning
+2. **Prioritising** them by deal closure probability
+3. **Generating** an efficient round-trip visit route
+
+## Dataset
+
+- **Source:** [CRM Sales Opportunities Dataset — Maven Analytics](https://mavenanalytics.io/data-playground)
+- **Files:** `accounts.csv`, `products.csv`, `sales_teams.csv`, `sales_pipeline.csv`
+- **Records:** 85 accounts, 8,800 opportunities, 35 sales agents, 7 products
+- **Features used for ML:** industry, company_size, region, deal_value, sales_stage, days_since_last_contact
+- **Target:** `deal_closed` (binary: 0 = open, 1 = won)
+- **Geo-coordinates:** Synthetically generated from region data using 8 anchor cities with deterministic noise
+
+## Approach
+
+### Machine Learning Pipeline
+- **Model:** XGBoost binary classifier wrapped in a scikit-learn Pipeline
+- **Preprocessing:** OneHotEncoder for categoricals, log1p transform for deal_value, passthrough for numerics
+- **Training split:** 70/15/15 stratified (train/validation/test)
+- **Class balancing:** Automatic `scale_pos_weight` for imbalanced classes
+- **Output:** Probability score (0–1) per account indicating deal closure likelihood
+- **Metrics:** AUC and Accuracy evaluated on train, validation, and test sets
+
+### Route Optimisation
+- **Algorithm:** Travelling Salesman Problem (TSP) solver
+- **Primary solver:** OR-Tools with GUIDED_LOCAL_SEARCH metaheuristic
+- **Fallback:** Nearest-neighbour heuristic (when OR-Tools is unavailable)
+- **Distance:** Haversine formula for geographic coordinates
+- **Output:** Ordered round-trip route (START → accounts → END) with total distance in km
+
+### System Architecture
+```
+┌─────────────┐     ┌───────────────┐     ┌──────────────┐
+│  Frontend    │────▶│  FastAPI REST  │────▶│  PostgreSQL  │
+│  (Leaflet)   │◀────│  API Server   │◀────│  Database    │
+└─────────────┘     └───────┬───────┘     └──────────────┘
+                            │
+                    ┌───────┴───────┐
+                    │               │
+              ┌─────▼─────┐  ┌─────▼──────┐
+              │  XGBoost   │  │  TSP Solver │
+              │  Predictor │  │  (OR-Tools) │
+              └───────────┘  └────────────┘
 ```
 
-This starts PostgreSQL and the FastAPI API. The database schema is auto-created on first run.
+## Technology Stack
 
-### 2. Load data
+| Component | Technology |
+|-----------|-----------|
+| Backend | Python 3.11, FastAPI |
+| Database | PostgreSQL 16 |
+| ML Model | XGBoost + scikit-learn Pipeline |
+| Route Optimisation | OR-Tools / Nearest-Neighbour TSP |
+| Frontend | Leaflet.js, Vanilla JS (no build tools) |
+| Deployment | Render (free tier), Docker |
+| Data Pipeline | Pandas, SQLAlchemy bulk upsert |
 
-```bash
-docker compose exec api python -m app.data.data_loader /data/raw
-```
+## Progress So Far
 
-Or locally (with DB running):
+### Completed
+- [x] Data preprocessing and PostgreSQL database setup with bulk upsert pipeline
+- [x] Synthetic geo-coordinate generation from region data (8 anchor cities)
+- [x] XGBoost model training with sklearn Pipeline (OHE + log1p + classifier)
+- [x] Model evaluation (AUC, Accuracy on train/val/test splits)
+- [x] TSP route optimisation with OR-Tools + nearest-neighbour fallback
+- [x] Haversine distance calculation for geographic routing
+- [x] FastAPI REST API with endpoints: health, meta, score-accounts, optimize-route, load-data, accounts CRUD
+- [x] Pydantic v2 request/response schemas
+- [x] Interactive frontend with Leaflet.js map, account management, route visualisation
+- [x] Docker + Docker Compose configuration
+- [x] Public deployment on Render
+- [x] Demo notebook with charts, interactive maps, and API verification
+- [x] Unit tests for scoring and route optimisation
 
-```bash
-python -m app.data.data_loader data/raw
-```
+### API Endpoints
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| GET | `/health` | Health check |
+| GET | `/meta` | Service info and model version |
+| POST | `/v1/score-accounts` | Score accounts by deal closure probability |
+| POST | `/v1/optimize-route` | Get optimised round-trip route for top accounts |
+| POST | `/v1/load-data` | Load CSV seed data into database |
+| GET | `/v1/accounts` | List all accounts |
+| GET | `/v1/accounts/{id}` | Get single account |
+| POST | `/v1/accounts` | Create new account |
+| DELETE | `/v1/accounts/{id}` | Delete account |
 
-### 3. Train the model
+## Next Steps
 
-```bash
-docker compose exec api python -m app.ml.train_model --csv /data/raw
-```
-
-Or locally:
-
-```bash
-python -m app.ml.train_model --csv data/raw
-```
-
-To train from data already loaded in the database:
-
-```bash
-python -m app.ml.train_model
-```
-
-### 4. Run tests
-
-```bash
-pytest tests/ -v
-```
-
-### 5. API usage
-
-**Health check:**
-
-```bash
-curl http://localhost:8000/health
-```
-
-```json
-{"status": "ok"}
-```
-
-**Score accounts:**
-
-```bash
-curl -X POST http://localhost:8000/v1/score-accounts \
-  -H "Content-Type: application/json" \
-  -d '{"account_ids": [101, 205, 330]}'
-```
-
-```json
-{
-  "scores": [
-    {"account_id": 101, "priority_score": 0.82}
-  ],
-  "model_version": "xgb_v1"
-}
-```
-
-**Optimize route:**
-
-```bash
-curl -X POST http://localhost:8000/v1/optimize-route \
-  -H "Content-Type: application/json" \
-  -d '{"start_account_id": 1, "account_ids": [101, 205, 330], "top_n": 3, "distance_mode": "haversine"}'
-```
-
-```json
-{
-  "selected_accounts": [
-    {"account_id": 101, "priority_score": 0.82}
-  ],
-  "route": [
-    {"stop_index": 0, "account_id": 1, "label": "START"},
-    {"stop_index": 1, "account_id": 101, "label": "ACCOUNT"},
-    {"stop_index": 2, "account_id": 205, "label": "ACCOUNT"},
-    {"stop_index": 3, "account_id": 330, "label": "ACCOUNT"},
-    {"stop_index": 4, "account_id": 1, "label": "END"}
-  ],
-  "total_distance_km": 412.6,
-  "distance_mode": "haversine"
-}
-```
+- [ ] Experiment with deep learning models (neural network classifier) for deal prediction
+- [ ] Add hyperparameter tuning with cross-validation
+- [ ] Implement real-time model retraining pipeline
+- [ ] Add Google Maps API integration for real travel distances
+- [ ] Build more advanced analytics dashboard
 
 ## Project Structure
 
 ```
 salespilot/
-  app/
-    api/          routes.py, schemas.py
-    core/         config.py
-    data/         data_loader.py, synthetic_geo.py
-    db/           schema.sql, session.py
-    ml/           train_model.py, predictor.py, artifacts/
-    optimization/ distance_provider.py, haversine.py, ortools_tsp.py
-  tests/          test_scoring.py, test_optimize_route.py
-  docker-compose.yml
-  Dockerfile
-  requirements.txt
+├── app/
+│   ├── api/             # FastAPI routes and Pydantic schemas
+│   │   ├── routes.py
+│   │   └── schemas.py
+│   ├── core/            # Configuration (env vars, settings)
+│   │   └── config.py
+│   ├── data/            # Data pipeline and geo-coordinate generation
+│   │   ├── data_loader.py
+│   │   └── synthetic_geo.py
+│   ├── db/              # Database schema and session management
+│   │   ├── schema.sql
+│   │   └── session.py
+│   ├── ml/              # ML training, prediction, and saved artifacts
+│   │   ├── train_model.py
+│   │   ├── predictor.py
+│   │   └── artifacts/
+│   │       ├── model.joblib
+│   │       └── metrics.json
+│   ├── optimization/    # TSP solver and distance calculations
+│   │   ├── ortools_tsp.py
+│   │   ├── haversine.py
+│   │   └── distance_provider.py
+│   └── main.py          # FastAPI app entrypoint with lifespan handler
+├── data/raw/            # Source CSV datasets
+├── static/              # Frontend (Leaflet.js map interface)
+│   ├── index.html
+│   ├── css/style.css
+│   └── js/
+├── tests/               # Unit tests
+├── notebooks/           # Jupyter notebooks
+├── Dockerfile
+├── docker-compose.yml
+├── render.yaml          # Render deployment blueprint
+├── requirements.txt
+└── start.sh
 ```
 
-## Environment Variables
+## How to Run
 
-See `.env.example` for all configuration options.
+### Option 1: Docker (recommended)
+```bash
+docker compose up --build
+```
+
+### Option 2: Local setup
+```bash
+pip install -r requirements.txt
+# Set DATABASE_URL in .env (see .env.example)
+python -m app.ml.train_model --csv data/raw
+uvicorn app.main:app --reload
+```
+
+### Load seed data
+```bash
+curl -X POST http://localhost:8000/v1/load-data
+```
+
+### Run tests
+```bash
+pytest tests/ -v
+```
+
+## References
+
+- [CRM Sales Opportunities Dataset — Maven Analytics](https://mavenanalytics.io/data-playground)
+- [XGBoost Documentation](https://xgboost.readthedocs.io/)
+- [Google OR-Tools Documentation](https://developers.google.com/optimization)
+- [scikit-learn Documentation](https://scikit-learn.org/)
+- [FastAPI Documentation](https://fastapi.tiangolo.com/)
+- [Leaflet.js Documentation](https://leafletjs.com/)
