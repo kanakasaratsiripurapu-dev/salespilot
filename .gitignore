@@ -10,3 +10,4 @@ pgdata/
 anaconda_projects/
 .DS_Store
 notebooks/dl_pipeline_executed.ipynb
+.claude/
