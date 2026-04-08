@@ -9,7 +9,7 @@
 
 ## Project Overview
 
-SalesPilot is a backend-driven system that helps field sales representatives plan client visits more effectively. It combines **machine learning-based deal prioritisation** with **route optimisation** to create efficient round-trip travel plans.
+SalesPilot is a backend-driven system that helps field sales representatives plan client visits more effectively. It combines **Deep learning-based deal prioritisation** with **route optimisation** to create efficient round-trip travel plans.
 
 The system predicts which client accounts are most likely to close deals, ranks them by priority score, and generates an optimised visit route — minimising travel distance while maximising business value.
 
