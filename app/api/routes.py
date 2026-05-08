@@ -181,51 +181,57 @@ def get_account(account_id: int, db: Session = Depends(get_db)):
 
 @router.post("/v1/accounts", response_model=AccountResponse, status_code=201)
 def create_account(body: AccountCreate, db: Session = Depends(get_db)):
-    aid = _hash_id(body.account_name)
+    try:
+        aid = _hash_id(body.account_name)
 
-    # Check for duplicate
-    existing = db.execute(
-        text("SELECT account_id FROM accounts WHERE account_id = :aid"),
-        {"aid": aid},
-    ).fetchone()
-    if existing:
-        raise HTTPException(status_code=409, detail="Account with this name already exists")
+        # Check for duplicate
+        existing = db.execute(
+            text("SELECT account_id FROM accounts WHERE account_id = :aid"),
+            {"aid": aid},
+        ).fetchone()
+        if existing:
+            raise HTTPException(status_code=409, detail="Account with this name already exists")
 
-    # Assign coordinates if not provided
-    lat, lon = body.latitude, body.longitude
-    if lat is None or lon is None:
-        lat, lon = assign_coordinates(body.region or "us", aid)
+        # Assign coordinates if not provided
+        lat, lon = body.latitude, body.longitude
+        if lat is None or lon is None:
+            lat, lon = assign_coordinates(body.region or "us", aid)
 
-    db.execute(
-        text("""
-            INSERT INTO accounts (account_id, account_name, industry, company_size, revenue, region, latitude, longitude)
-            VALUES (:aid, :name, :industry, :size, :revenue, :region, :lat, :lon)
-        """),
-        {
-            "aid": aid, "name": body.account_name, "industry": body.industry,
-            "size": body.company_size, "revenue": body.revenue, "region": body.region,
-            "lat": lat, "lon": lon,
-        },
-    )
+        db.execute(
+            text("""
+                INSERT INTO accounts (account_id, account_name, industry, company_size, revenue, region, latitude, longitude)
+                VALUES (:aid, :name, :industry, :size, :revenue, :region, :lat, :lon)
+            """),
+            {
+                "aid": aid, "name": body.account_name, "industry": body.industry,
+                "size": body.company_size, "revenue": body.revenue, "region": body.region,
+                "lat": lat, "lon": lon,
+            },
+        )
 
-    # Insert placeholder opportunity so scoring works
-    opp_id = _hash_id(f"{body.account_name}_opp_placeholder")
-    db.execute(
-        text("""
-            INSERT INTO opportunities (opportunity_id, account_id, deal_value, sales_stage, days_since_last_contact, deal_closed)
-            VALUES (:oid, :aid, :deal_value, :stage, 0, 0)
-            ON CONFLICT (opportunity_id) DO NOTHING
-        """),
-        {"oid": opp_id, "aid": aid, "deal_value": body.deal_value, "stage": body.sales_stage},
-    )
+        # Insert placeholder opportunity so scoring works
+        opp_id = _hash_id(f"{body.account_name}_opp_placeholder")
+        db.execute(
+            text("""
+                INSERT INTO opportunities (opportunity_id, account_id, deal_value, sales_stage, days_since_last_contact, deal_closed)
+                VALUES (:oid, :aid, :deal_value, :stage, 0, 0)
+                ON CONFLICT (opportunity_id) DO NOTHING
+            """),
+            {"oid": opp_id, "aid": aid, "deal_value": body.deal_value, "stage": body.sales_stage},
+        )
 
-    db.commit()
+        db.commit()
 
-    return AccountResponse(
-        account_id=aid, account_name=body.account_name, industry=body.industry,
-        company_size=body.company_size, revenue=body.revenue, region=body.region,
-        latitude=lat, longitude=lon,
-    )
+        return AccountResponse(
+            account_id=aid, account_name=body.account_name, industry=body.industry,
+            company_size=body.company_size, revenue=body.revenue, region=body.region,
+            latitude=lat, longitude=lon,
+        )
+    except HTTPException:
+        raise
+    except Exception as e:
+        db.rollback()
+        raise HTTPException(status_code=500, detail=str(e))
 
 
 @router.delete("/v1/accounts/{account_id}", status_code=204)
