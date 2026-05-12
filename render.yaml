@@ -6,6 +6,8 @@ services:
     buildCommand: pip install -r requirements.txt
     startCommand: bash start.sh
     envVars:
+      - key: DATABASE_URL
+        value: "sqlite:///salespilot.db"
       - key: MODEL_PATH
         value: app/ml/artifacts/model.joblib
       - key: MODEL_VERSION
