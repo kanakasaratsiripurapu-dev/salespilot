@@ -161,90 +161,48 @@ def _load_opportunities(
 # ---------------------------------------------------------------------------
 
 def _upsert_accounts(conn, df: pd.DataFrame) -> None:
-    """Bulk upsert accounts using a temp table + INSERT … ON CONFLICT."""
-    conn.execute(text("CREATE TEMP TABLE _tmp_accounts (LIKE accounts INCLUDING DEFAULTS) ON COMMIT DROP"))
     rows = df.where(df.notna(), None).to_dict("records")
-    conn.execute(
-        text("""
-            INSERT INTO _tmp_accounts
-                (account_id, account_name, industry, company_size,
-                 revenue, year_established, region, subsidiary_of,
-                 latitude, longitude)
-            VALUES
-                (:account_id, :account_name, :industry, :company_size,
-                 :revenue, :year_established, :region, :subsidiary_of,
-                 :latitude, :longitude)
-        """),
-        rows,
-    )
-    conn.execute(text("""
-        INSERT INTO accounts
-            (account_id, account_name, industry, company_size,
-             revenue, year_established, region, subsidiary_of,
-             latitude, longitude)
-        SELECT account_id, account_name, industry, company_size,
-               revenue, year_established, region, subsidiary_of,
-               latitude, longitude
-        FROM _tmp_accounts
-        ON CONFLICT (account_id) DO UPDATE SET
-            account_name = EXCLUDED.account_name,
-            industry     = EXCLUDED.industry,
-            company_size = EXCLUDED.company_size,
-            revenue      = EXCLUDED.revenue,
-            year_established = EXCLUDED.year_established,
-            region       = EXCLUDED.region,
-            subsidiary_of = EXCLUDED.subsidiary_of,
-            latitude     = EXCLUDED.latitude,
-            longitude    = EXCLUDED.longitude
-    """))
+    for r in rows:
+        conn.execute(text("""
+            INSERT INTO accounts (account_id, account_name, industry, company_size,
+                revenue, year_established, region, subsidiary_of, latitude, longitude)
+            VALUES (:account_id, :account_name, :industry, :company_size,
+                :revenue, :year_established, :region, :subsidiary_of, :latitude, :longitude)
+            ON CONFLICT (account_id) DO UPDATE SET
+                account_name=EXCLUDED.account_name, industry=EXCLUDED.industry,
+                company_size=EXCLUDED.company_size, revenue=EXCLUDED.revenue,
+                year_established=EXCLUDED.year_established, region=EXCLUDED.region,
+                subsidiary_of=EXCLUDED.subsidiary_of, latitude=EXCLUDED.latitude,
+                longitude=EXCLUDED.longitude
+        """), r)
 
 
 def _upsert_products(conn, df: pd.DataFrame) -> None:
-    conn.execute(text("CREATE TEMP TABLE _tmp_products (LIKE products INCLUDING DEFAULTS) ON COMMIT DROP"))
     rows = df.where(df.notna(), None).to_dict("records")
-    conn.execute(
-        text("""
-            INSERT INTO _tmp_products (product_id, product_name, series, sales_price)
+    for r in rows:
+        conn.execute(text("""
+            INSERT INTO products (product_id, product_name, series, sales_price)
             VALUES (:product_id, :product_name, :series, :sales_price)
-        """),
-        rows,
-    )
-    conn.execute(text("""
-        INSERT INTO products (product_id, product_name, series, sales_price)
-        SELECT product_id, product_name, series, sales_price
-        FROM _tmp_products
-        ON CONFLICT (product_id) DO UPDATE SET
-            product_name = EXCLUDED.product_name,
-            series       = EXCLUDED.series,
-            sales_price  = EXCLUDED.sales_price
-    """))
+            ON CONFLICT (product_id) DO UPDATE SET
+                product_name=EXCLUDED.product_name, series=EXCLUDED.series,
+                sales_price=EXCLUDED.sales_price
+        """), r)
 
 
 def _upsert_sales_teams(conn, df: pd.DataFrame) -> None:
-    conn.execute(text("CREATE TEMP TABLE _tmp_teams (LIKE sales_teams INCLUDING DEFAULTS) ON COMMIT DROP"))
     rows = df.where(df.notna(), None).to_dict("records")
-    conn.execute(
-        text("""
-            INSERT INTO _tmp_teams (agent_id, sales_agent, manager, regional_office)
+    for r in rows:
+        conn.execute(text("""
+            INSERT INTO sales_teams (agent_id, sales_agent, manager, regional_office)
             VALUES (:agent_id, :sales_agent, :manager, :regional_office)
-        """),
-        rows,
-    )
-    conn.execute(text("""
-        INSERT INTO sales_teams (agent_id, sales_agent, manager, regional_office)
-        SELECT agent_id, sales_agent, manager, regional_office
-        FROM _tmp_teams
-        ON CONFLICT (agent_id) DO UPDATE SET
-            sales_agent    = EXCLUDED.sales_agent,
-            manager        = EXCLUDED.manager,
-            regional_office = EXCLUDED.regional_office
-    """))
+            ON CONFLICT (agent_id) DO UPDATE SET
+                sales_agent=EXCLUDED.sales_agent, manager=EXCLUDED.manager,
+                regional_office=EXCLUDED.regional_office
+        """), r)
 
 
 def _upsert_opportunities(conn, df: pd.DataFrame) -> None:
-    conn.execute(text("CREATE TEMP TABLE _tmp_opps (LIKE opportunities INCLUDING DEFAULTS) ON COMMIT DROP"))
     rows = df.where(df.notna(), None).to_dict("records")
-    # Convert dates to strings for parameterised insert; NaT → None
     for r in rows:
         for col in ("engage_date", "close_date"):
             val = r[col]
@@ -254,39 +212,21 @@ def _upsert_opportunities(conn, df: pd.DataFrame) -> None:
                 r[col] = val.isoformat()
             elif isinstance(val, str) and val == "NaT":
                 r[col] = None
-    conn.execute(
-        text("""
-            INSERT INTO _tmp_opps
-                (opportunity_id, account_id, agent_id, product_id,
-                 deal_value, sales_stage, engage_date, close_date,
-                 days_since_last_contact, deal_closed)
-            VALUES
-                (:opportunity_id, :account_id, :agent_id, :product_id,
-                 :deal_value, :sales_stage, :engage_date, :close_date,
-                 :days_since_last_contact, :deal_closed)
-        """),
-        rows,
-    )
-    conn.execute(text("""
-        INSERT INTO opportunities
-            (opportunity_id, account_id, agent_id, product_id,
-             deal_value, sales_stage, engage_date, close_date,
-             days_since_last_contact, deal_closed)
-        SELECT opportunity_id, account_id, agent_id, product_id,
-               deal_value, sales_stage, engage_date, close_date,
-               days_since_last_contact, deal_closed
-        FROM _tmp_opps
-        ON CONFLICT (opportunity_id) DO UPDATE SET
-            account_id   = EXCLUDED.account_id,
-            agent_id     = EXCLUDED.agent_id,
-            product_id   = EXCLUDED.product_id,
-            deal_value   = EXCLUDED.deal_value,
-            sales_stage  = EXCLUDED.sales_stage,
-            engage_date  = EXCLUDED.engage_date,
-            close_date   = EXCLUDED.close_date,
-            days_since_last_contact = EXCLUDED.days_since_last_contact,
-            deal_closed  = EXCLUDED.deal_closed
-    """))
+        conn.execute(text("""
+            INSERT INTO opportunities (opportunity_id, account_id, agent_id, product_id,
+                deal_value, sales_stage, engage_date, close_date,
+                days_since_last_contact, deal_closed)
+            VALUES (:opportunity_id, :account_id, :agent_id, :product_id,
+                :deal_value, :sales_stage, :engage_date, :close_date,
+                :days_since_last_contact, :deal_closed)
+            ON CONFLICT (opportunity_id) DO UPDATE SET
+                account_id=EXCLUDED.account_id, agent_id=EXCLUDED.agent_id,
+                product_id=EXCLUDED.product_id, deal_value=EXCLUDED.deal_value,
+                sales_stage=EXCLUDED.sales_stage, engage_date=EXCLUDED.engage_date,
+                close_date=EXCLUDED.close_date,
+                days_since_last_contact=EXCLUDED.days_since_last_contact,
+                deal_closed=EXCLUDED.deal_closed
+        """), r)
 
 
 # ---------------------------------------------------------------------------

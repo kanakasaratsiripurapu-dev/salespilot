@@ -11,7 +11,8 @@ from fastapi.responses import FileResponse
 from fastapi.staticfiles import StaticFiles
 
 from app.api.routes import router
-from app.data.data_loader import init_schema
+from app.core.config import settings
+from app.data.data_loader import init_schema, load_csv
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
@@ -19,14 +20,19 @@ logger = logging.getLogger(__name__)
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
-    # Startup: ensure DB schema (keep it fast for Render free tier)
     logger.info("Starting SalesPilot API...")
     try:
         init_schema()
-    except Exception:
-        logger.warning("Could not initialise schema — DB may be unavailable")
+        data_dir = Path(settings.DATA_DIR)
+        if data_dir.exists() and (data_dir / "accounts.csv").exists():
+            logger.info("Loading CSV data into database...")
+            counts = load_csv(str(data_dir))
+            logger.info("Data loaded: %s", counts)
+        else:
+            logger.warning("CSV data directory not found at %s — skipping data load", data_dir)
+    except Exception as e:
+        logger.warning("Startup data load failed: %s", e)
 
-    # Model warmup deferred to first request (saves RAM on free tier)
     logger.info("Application startup complete.")
     yield
     # Shutdown
